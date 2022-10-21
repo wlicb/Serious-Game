@@ -1,0 +1,10 @@
+{
+  "Shanghai": { "infection": "1000" },
+  "Beijing": { "infection": "1000" },
+  "Tianjin": { "infection": "1000" },
+  "Guangzhou": { "infection": "1000" },
+  "Shenzhen": { "infection": "1000" },
+  "Chengdu": { "infection": "1000" },
+  "Chongqing": { "infection": "1000" },
+  "Wuhan": { "infection": "1000" }
+}
