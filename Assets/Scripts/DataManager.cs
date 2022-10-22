@@ -85,7 +85,7 @@ public class DataManager : MonoBehaviour
     public int getAverageSatisfaction() {
         int total = 0;
         for (var i = 0; i < numCities; i++) {
-            total += infections[i];
+            total += satisfactions[i];
         }
         return total / 10;
 
