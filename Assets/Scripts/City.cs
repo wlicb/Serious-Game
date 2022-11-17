@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System;
 using static DataManager;
+using static InfoBlock;
 
 public class City : MonoBehaviour
 {
@@ -18,17 +20,17 @@ public class City : MonoBehaviour
 
     public int cityIndex;
 
+    private InfoBlock infoBlock;
+
+
     // Start is called before the first frame update
     void Start()
     {
         dataManager = dataManagerObject.GetComponent<DataManager>();
         gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
         gameObject.transform.localScale = new Vector3(0, 0, 1);
-        // For now, we just initialize the infection to 0, while in reality we will real from json data
-        // infection = dataManager.getInfection(cityIndex);
+        infoBlock = gameObject.transform.parent.GetChild(0).gameObject.GetComponent<InfoBlock>();
 
-        // coroutine = updateInfection(2.0f);
-        // StartCoroutine(coroutine);
     }
 
     // Update is called once per frame

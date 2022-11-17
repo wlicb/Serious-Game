@@ -114,7 +114,7 @@ public class DataManager : MonoBehaviour
         for (var i = 0; i < numCities; i++) {
             total += satisfactions[i];
         }
-        return (float)(total / 10);
+        return (float)(total / numCities);
 
     }
 
