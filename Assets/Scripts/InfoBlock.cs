@@ -44,7 +44,7 @@ public class InfoBlock : MonoBehaviour
     public void show(int index) {
         gameObject.SetActive(true);
         // gameObject.transform.SetParent(ChinaMap.transform.GetChild(index + 1));
-        gameObject.transform.localPosition = ChinaMap.transform.GetChild(index + 2).transform.localPosition;
+        gameObject.transform.localPosition = ChinaMap.transform.GetChild(index + 4).transform.localPosition;
         updateContent(index);
     }
 
@@ -164,38 +164,38 @@ public class InfoBlock : MonoBehaviour
     }
 
     private void addDescription() {
-        briefDescription.Add(0, "");
-        briefDescription.Add(1, "");
-        briefDescription.Add(2, "");
-        briefDescription.Add(3, "");
-        briefDescription.Add(4, "");
-        briefDescription.Add(5, "");
-        briefDescription.Add(6, "");
-        briefDescription.Add(7, "");
-        briefDescription.Add(8, "");
-        briefDescription.Add(9, "");
-        briefDescription.Add(10, "");
-        briefDescription.Add(11, "");
-        briefDescription.Add(12, "");
-        briefDescription.Add(13, "");
-        briefDescription.Add(14, "");
-        briefDescription.Add(15, "");
-        briefDescription.Add(16, "");
-        briefDescription.Add(17, "");
-        briefDescription.Add(18, "");
-        briefDescription.Add(19, "");
-        briefDescription.Add(20, "");
-        briefDescription.Add(21, "");
-        briefDescription.Add(22, "");
-        briefDescription.Add(23, "");
-        briefDescription.Add(24, "");
-        briefDescription.Add(25, "");
-        briefDescription.Add(26, "");
-        briefDescription.Add(27, "");
-        briefDescription.Add(28, "");
-        briefDescription.Add(29, "");
-        briefDescription.Add(30, "");
-        briefDescription.Add(31, "");
-        briefDescription.Add(32, "");
+        briefDescription.Add(0, "Shanghai is one of the four direct-administered municipalities of China (PRC), located on the southern estuary of the Yangtze River.");
+        briefDescription.Add(1, "Beijing is the capital of China. It is the center of power and development of the country.");
+        briefDescription.Add(2, "Tianjin is a municipality and a coastal metropolis in Northern China on the shore of the Bohai Sea.");
+        briefDescription.Add(3, "Guangzhou is the capital and largest city of Guangdong province in southern China.");
+        briefDescription.Add(4, "Shenzhen is a major sub-provincial city and one of the special economic zones of China.");
+        briefDescription.Add(5, "Chengdu is a sub-provincial city which serves as the capital of the Chinese province of Sichuan.");
+        briefDescription.Add(6, "Chongqing is the only municipality in China located deep inland.");
+        briefDescription.Add(7, "Wuhan is the largest city in Hubei and the most populous city in Central China, with a population of over eleven million.");
+        briefDescription.Add(8, "Nanchang has become a major railway hub in Southern China in recent decades.");
+        briefDescription.Add(9, "Shenyang is a major Chinese sub-provincial city and the provincial capital of Liaoning province.");
+        briefDescription.Add(10, "Changchun is the capital and largest city of Jilin Province, comprising 7 districts, 1 county and 3 county-level cities.");
+        briefDescription.Add(11, "Harbin is a sub-provincial city and the provincial capital and the largest city of Heilongjiang province.");
+        briefDescription.Add(12, "Hohhot is the capital of Inner Mongolia in the north of the People's Republic of China, serving as the region's administrative, economic and cultural center.");
+        briefDescription.Add(13, "Urumqi is the capital of the Xinjiang Uyghur Autonomous Region in the far northwest of China.");
+        briefDescription.Add(14, "Lhasa is the urban center of the prefecture-level Lhasa City and the administrative capital of Tibet Autonomous Region in Southwest China.");
+        briefDescription.Add(15, "Xining is the capital of Qinghai province in western China and the largest city on the Tibetan Plateau.");
+        briefDescription.Add(16, "Lanzhou is a key regional transportation hub, connecting areas further west by rail to the eastern half of the country.");
+        briefDescription.Add(17, "Yinchuan is the capital of the Ningxia Hui Autonomous Region, China.");
+        briefDescription.Add(18, "Xi'an is a sub-provincial city on the Guanzhong Plain. the city is the most populous city in Northwest China.");
+        briefDescription.Add(19, "Taiyuan is the capital and largest city of Shanxi Province.");
+        briefDescription.Add(20, "Zhengzhou is one of the National Central Cities in China, located in north-central Henan.");
+        briefDescription.Add(21, "Jinan is the capital of Shandong province in Eastern China.");
+        briefDescription.Add(22, "Qingdao is a major city with the highest GDP in eastern Shandong Province.");
+        briefDescription.Add(23, "Nanjing is he capital of Jiangsu province, a sub-provincial city, a megacity, and the third largest city in the East China region.");
+        briefDescription.Add(24, "Hefei is the capital and largest city, and political, economic, and cultural center of Anhui Province.");
+        briefDescription.Add(25, "Hangzhou is the capital and most populous city of Zhejiang, China.");
+        briefDescription.Add(26, "Fuzhou is the capital and one of the largest cities in Fujian province.");
+        briefDescription.Add(27, "Changsha is the capital and the largest city of Hunan Province.");
+        briefDescription.Add(28, "Guiyang, historically rendered as Kweiyang, is the capital of Guizhou province");
+        briefDescription.Add(29, "Kunming is the capital and largest city of Yunnan province. It is the political, economic, communications, and cultural center of the province.");
+        briefDescription.Add(30, "Shijiazhuang is the capital and largest city of North China's Hebei Province.");
+        briefDescription.Add(31, "Nanning is the capital and largest city by population of the Guangxi Zhuang Autonomous Region in Southern China.");
+        briefDescription.Add(32, "Haikou is the capital and most populous city of the Chinese province of Hainan.");
     }
 }

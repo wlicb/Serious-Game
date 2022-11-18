@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static DataValue;
 using static DateContent;
 using static Wavecircle;
 using static UpdateInfection;
+using static LineChartController;
 
 public class DataPaneController : MonoBehaviour
 {
@@ -13,7 +13,6 @@ public class DataPaneController : MonoBehaviour
 
     private DataManager dataManager;
 
-    // private DataValue infection;
     public GameObject infectionFigure;
 
     private UpdateInfection infectionScript;
@@ -22,33 +21,32 @@ public class DataPaneController : MonoBehaviour
 
     private UpdateInfection deathScript;
 
-    private DataValue death;
-
-    // private DataValue satisfaction;
-
-    // public GameObject satisfactionText;
-
     public GameObject satisfactionFigure;
 
     private Wavecircle satisfactionScript;
+
+    public GameObject lineChart;
+
+    private LineChartController lineChartController;
 
     public GameObject dateObject;
 
     private DateContent date;
 
     private int CityIndex;
+
+    private int k = 7;
     
     // Start is called before the first frame update
     void Start()
     {
+        CityIndex = -1;
         dataManager = dataManagerObject.GetComponent<DataManager>();
-        // infection = gameObject.transform.GetChild(2).GetChild(1).gameObject.GetComponent<DataValue>();
         infectionScript = infectionFigure.GetComponent<UpdateInfection>();
-        // death = gameObject.transform.GetChild(3).GetChild(1).gameObject.GetComponent<DataValue>();
         deathScript = deathFigure.GetComponent<UpdateInfection>();
-        // satisfaction = satisfactionText.GetComponent<DataValue>();
         satisfactionScript = satisfactionFigure.GetComponent<Wavecircle>();
         date = dateObject.GetComponent<DateContent>();
+        lineChartController = lineChart.GetComponent<LineChartController>();
     }
 
     // Update is called once per frame
@@ -56,10 +54,9 @@ public class DataPaneController : MonoBehaviour
     {
         var infectionValue = 0;
         if (CityIndex == -1)
-            infectionValue = dataManager.getTotalInfection();
+            infectionValue = dataManager.getTotalIncrease();
         else
-            infectionValue = dataManager.getInfection(CityIndex);
-        // infection.UpdateFigure(infectionValue, 0.0f, 0);
+            infectionValue = dataManager.getIncrease(CityIndex);
         infectionScript.UpdateNumber(infectionValue);
 
         var deathValue = 0;
@@ -67,7 +64,6 @@ public class DataPaneController : MonoBehaviour
             deathValue = dataManager.getTotalDeath();
         else
             deathValue = dataManager.getDeath(CityIndex);
-        // death.UpdateFigure(deathValue, 0.0f, 1);
         deathScript.UpdateNumber(deathValue);
         
 
@@ -76,10 +72,26 @@ public class DataPaneController : MonoBehaviour
             satisfactionValue = dataManager.getAverageSatisfaction();
         else
             satisfactionValue = dataManager.getSatisfaction(CityIndex);
-        // satisfaction.UpdateFigure(0, satisfactionValue, 2);
         satisfactionScript.UpdatePercent(satisfactionValue);
 
         date.UpdateDate(dataManager.getDateYear(), dataManager.getDateMonth(), dataManager.getDateDay());
+
+        var infectionHistory = new int[k];
+        if (CityIndex == -1)
+            infectionHistory = dataManager.getTotalIncreaseHistory();
+        else
+            infectionHistory = dataManager.getIncreaseHistory(CityIndex);
+        lineChartController.UpdateInfectionLine(infectionHistory);
+
+        var deathHistory = new int[k];
+        if (CityIndex == -1)
+            infectionHistory = dataManager.getTotalDeathHistory();
+        else
+            infectionHistory = dataManager.getDeathHistory(CityIndex);
+        lineChartController.UpdateDeathLine(infectionHistory);
+
+        lineChartController.UpdateX(dataManager.getCurrentDate());
+        
     }
 
     public void changeCity(int i) {

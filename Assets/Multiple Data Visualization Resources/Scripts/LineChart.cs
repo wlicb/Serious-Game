@@ -31,6 +31,7 @@ public class LineChart : MonoBehaviour
                 GameObject line = GameObject.Instantiate<GameObject>(linePrefab);
                 line.transform.SetParent(allPoint[a]);
                 line.transform.localPosition = Vector3.zero;
+                line.transform.localScale = new Vector3(1, 0.29f, 1);
             }
         }
     }
@@ -50,7 +51,7 @@ public class LineChart : MonoBehaviour
 
             if(allPoint[a+1]!=null)
             {
-                Vector3 v = (allPoint[a + 1].anchoredPosition - allPoint[a].anchoredPosition);
+                Vector3 v = (allPoint[a + 1].localPosition - allPoint[a].localPosition);
              
                 allPoint[a].GetChild(0).GetComponent<RectTransform>().sizeDelta =new Vector2( v.magnitude,50);
                 allPoint[a].GetChild(0).right = v;
