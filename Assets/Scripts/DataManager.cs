@@ -126,8 +126,7 @@ public class DataManager : MonoBehaviour
         return satisfactions[i];
     }
 
-    public int getMaxInfectionCity()
-    {
+    public int getMaxInfectionCity() {
         int city_index = 0;
         int max = infections[0];
         for (var i = 1; i < numCities; i++)

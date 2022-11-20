@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using static DataManager;
 using static InfoBlock;
+using TMPro;
 
 public class SocialMediaMessageController : MonoBehaviour
 {
@@ -25,29 +26,29 @@ public class SocialMediaMessageController : MonoBehaviour
     // values of 0 means that no need to replace. 1 meas need to replace
     private IDictionary<string, int> positive_comment = new Dictionary<string, int>()
     {
-        {"ÎÒÃÇÒªÏàĞÅÕş¸®°¡", 0},
-        {"¼á¶¨Ö§³ÖÕş¸®Ò»ÇĞ´ëÊ©", 0},
-        {"ÎÒÃÇÄÜÏëµ½µÄÕş¸®¿Ï¶¨ÄÜÏëµ½", 0},
-        {"{0}µÄÒßÇéÒÑ¾­ÔÚºÃ×ªÀ²£¬´ó¼ÒÒªÀÖ¹Û", 1},
-        {"Ö»Òª´ó¼ÒÍÅ½áÒ»ÖÂÎÒÃÇ¿Ï¶¨ÄÜ¶È¹ıÄÑ¹ØµÄ", 0}
+        {"æˆ‘ä»¬è¦ç›¸ä¿¡æ”¿åºœå•Š", 0},
+        {"åšå®šæ”¯æŒæ”¿åºœä¸€åˆ‡æªæ–½", 0},
+        {"æˆ‘ä»¬èƒ½æƒ³åˆ°çš„æ”¿åºœè‚¯å®šèƒ½æƒ³åˆ°", 0},
+        {"{0}çš„ç–«æƒ…å·²ç»åœ¨å¥½è½¬å•¦ å¤§å®¶è¦ä¹è§‚", 1},
+        {"åªè¦å¤§å®¶å›¢ç»“ä¸€è‡´æˆ‘ä»¬è‚¯å®šèƒ½åº¦è¿‡éš¾å…³çš„", 0}
     };
 
     private IDictionary<string, int> neutural_comment = new Dictionary<string, int>()
     {
-        {"´ó¼ÒÏÈ²»Òª×Å¼±ÆÀÅĞ£¬µÈÒ»¶ÎÊ±¼äÔÙ¿´", 0},
-        {"ËäÈ»´ó¼ÒÏÖÔÚºÜÄÑÊÜµ«Ò²²»Òª±»´ø½Ú×à" , 0},
-        {"Ä¿Ç°µÄÕş²ßÓĞÀûÓĞ±×", 0 }
+        {"å¤§å®¶å…ˆä¸è¦ç€æ€¥è¯„åˆ¤ ç­‰ä¸€æ®µæ—¶é—´å†çœ‹", 0},
+        {"è™½ç„¶å¤§å®¶ç°åœ¨å¾ˆéš¾å—ä½†ä¹Ÿä¸è¦è¢«å¸¦èŠ‚å¥" , 0},
+        {"ç›®å‰çš„æ”¿ç­–æœ‰åˆ©æœ‰å¼Š", 0 }
     };
 
     private IDictionary<string, int> negative_comment = new Dictionary<string, int>()
     {
-        {"Õâ{0}Õş¸®¾ÍÊÇÉ¶ÊÂ¶¼×ö²»ºÃ£¬ÈÎÓÉÒßÇéÀ©É¢", 1},
-        {"ÎªÊ²Ã´{0}Õş¸®Ò»µãÈËÎÄ¹Ø»³¶¼Ã»ÓĞ°¡", 1 },
-        {"{0}Õş¸®¿ÉÒÔ¸øÊĞÃñÃÇ×î»ù±¾µÄ×ğÖØÂğ", 1 },
-        {"ÒßÇéÕâÃ´ÑÏÖØ Á¬ÃÅ¶¼²»¸Ò³öÁË555", 0 },
-        {"Ã»×öÉ¶ÊÂ¾Í±»·âÔÚ¼ÒÀï£¬ÎŞÍıÖ®ÔÖ", 0 },
-        {"{0}¿ÚºÅº°µÃÄÇÃ´ÏìÈ´Ò»µãÊµÊÂ¶¼²»×ö", 1 },
-        {"Õâ{0}ÒßÇéÒ²Ì«¿ÉÅÂÁË°É",1 }
+        {"è¿™{0}æ”¿åºœå°±æ˜¯å•¥äº‹éƒ½åšä¸å¥½ ä»»ç”±ç–«æƒ…æ‰©æ•£", 1},
+        {"ä¸ºä»€ä¹ˆ{0}æ”¿åºœä¸€ç‚¹äººæ–‡å…³æ€€éƒ½æ²¡æœ‰å•Š", 1 },
+        {"{0}æ”¿åºœå¯ä»¥ç»™å¸‚æ°‘ä»¬æœ€åŸºæœ¬çš„å°Šé‡å—", 1 },
+        {"ç–«æƒ…è¿™ä¹ˆä¸¥é‡ è¿é—¨éƒ½ä¸æ•¢å‡ºäº†555", 0 },
+        {"æ²¡åšå•¥äº‹å°±è¢«å°åœ¨å®¶é‡Œ æ— å¦„ä¹‹ç¾", 0 },
+        {"{0}å£å·å–Šå¾—é‚£ä¹ˆå“å´ä¸€ç‚¹å®äº‹éƒ½ä¸åš", 1 },
+        {"è¿™{0}ç–«æƒ…ä¹Ÿå¤ªå¯æ€•äº†å§",1 }
     };
 
 
@@ -93,14 +94,14 @@ public class SocialMediaMessageController : MonoBehaviour
                     print(randomKey);
                     if(positive_comment[randomKey] == 0)
                     {
-                        newMessage.GetComponent<TextMesh>().text = randomKey;
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
                     }
                     else
                     {
                         int city_index = dataManager.getMaxInfectionCity();
                         string city = nameMapping[city_index];
                         var s = string.Format(randomKey, city);
-                        newMessage.GetComponent<TextMesh>().text = s;
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
                     }
                 }
                 else if (x > 90)
@@ -111,14 +112,14 @@ public class SocialMediaMessageController : MonoBehaviour
                     string randomKey = keyList[rand.Next(keyList.Count)];
                     if (neutural_comment[randomKey] == 0)
                     {
-                        newMessage.GetComponent<TextMesh>().text = randomKey;
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
                     }
                     else
                     {
                         int city_index = dataManager.getMaxInfectionCity();
                         string city = nameMapping[city_index];
                         var s = string.Format(randomKey, city);
-                        newMessage.GetComponent<TextMesh>().text = s;
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
                     }
                 }
                 else
@@ -129,14 +130,14 @@ public class SocialMediaMessageController : MonoBehaviour
                     string randomKey = keyList[rand.Next(keyList.Count)];
                     if (negative_comment[randomKey] == 0)
                     {
-                        newMessage.GetComponent<TextMesh>().text = randomKey;
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
                     } 
                     else
                     {
                         int city_index = dataManager.getMaxInfectionCity();
                         string city = nameMapping[city_index];
                         var s = string.Format(randomKey, city);
-                        newMessage.GetComponent<TextMesh>().text = s;
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
                     }
                 }
                 var y = newMessage.transform.position.y;
@@ -154,6 +155,63 @@ public class SocialMediaMessageController : MonoBehaviour
                 var newMessage = Instantiate(messagePrefab[messageCount % 3], message3.transform.position, Quaternion.identity);
                 newMessage.transform.SetParent(gameObject.transform);
                 newMessage.transform.localScale = new Vector3(1, 1, 1);
+
+
+                if (x < positive_comment_rate)
+                {
+                    //show positive comment
+                    List<string> keyList = new List<string>(positive_comment.Keys);
+                    System.Random rand = new System.Random();
+                    string randomKey = keyList[rand.Next(keyList.Count)];
+                    print(randomKey);
+                    if(positive_comment[randomKey] == 0)
+                    {
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    }
+                    else
+                    {
+                        int city_index = dataManager.getMaxInfectionCity();
+                        string city = nameMapping[city_index];
+                        var s = string.Format(randomKey, city);
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    }
+                }
+                else if (x > 90)
+                {
+                    //show neutural comment
+                    List<string> keyList = new List<string>(neutural_comment.Keys);
+                    System.Random rand = new System.Random();
+                    string randomKey = keyList[rand.Next(keyList.Count)];
+                    if (neutural_comment[randomKey] == 0)
+                    {
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    }
+                    else
+                    {
+                        int city_index = dataManager.getMaxInfectionCity();
+                        string city = nameMapping[city_index];
+                        var s = string.Format(randomKey, city);
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    }
+                }
+                else
+                {
+                    //show negative comment
+                    List<string> keyList = new List<string>(negative_comment.Keys);
+                    System.Random rand = new System.Random();
+                    string randomKey = keyList[rand.Next(keyList.Count)];
+                    if (negative_comment[randomKey] == 0)
+                    {
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    } 
+                    else
+                    {
+                        int city_index = dataManager.getMaxInfectionCity();
+                        string city = nameMapping[city_index];
+                        var s = string.Format(randomKey, city);
+                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    }
+                }
                 message3.transform.position = message2.transform.position;
                 message2.transform.position = message1.transform.position;
                 Destroy(message1);
@@ -165,39 +223,39 @@ public class SocialMediaMessageController : MonoBehaviour
     }
     private void makeMapping()
     {
-        nameMapping.Add(0, "Shanghai");
-        nameMapping.Add(1, "Beijing");
-        nameMapping.Add(2, "Tianjin");
-        nameMapping.Add(3, "Guangzhou");
-        nameMapping.Add(4, "Shenzhen");
-        nameMapping.Add(5, "Chengdu");
-        nameMapping.Add(6, "Chongqing");
-        nameMapping.Add(7, "Wuhan");
-        nameMapping.Add(8, "Nanchang");
-        nameMapping.Add(9, "Shenyang");
-        nameMapping.Add(10, "Changchun");
-        nameMapping.Add(11, "Harbin");
-        nameMapping.Add(12, "Huhhot");
-        nameMapping.Add(13, "Urumqi");
-        nameMapping.Add(14, "Lhasa");
-        nameMapping.Add(15, "Xining");
-        nameMapping.Add(16, "Lanzhou");
-        nameMapping.Add(17, "Yinchuan");
-        nameMapping.Add(18, "Xi'an");
-        nameMapping.Add(19, "Taiyuan");
-        nameMapping.Add(20, "Zhengzhou");
-        nameMapping.Add(21, "Jinan");
-        nameMapping.Add(22, "Qingdao");
-        nameMapping.Add(23, "Nanjing");
-        nameMapping.Add(24, "Hefei");
-        nameMapping.Add(25, "Hangzhou");
-        nameMapping.Add(26, "Fuzhou");
-        nameMapping.Add(27, "Changsha");
-        nameMapping.Add(28, "Guiyang");
-        nameMapping.Add(29, "Kunming");
-        nameMapping.Add(30, "Shijiazhuang");
-        nameMapping.Add(31, "Nanning");
-        nameMapping.Add(32, "Haikou");
+        nameMapping.Add(0, "ä¸Šæµ·");
+        nameMapping.Add(1, "åŒ—äº¬");
+        nameMapping.Add(2, "å¤©æ´¥");
+        nameMapping.Add(3, "å¹¿å·");
+        nameMapping.Add(4, "æ·±åœ³");
+        nameMapping.Add(5, "æˆéƒ½");
+        nameMapping.Add(6, "é‡åº†");
+        nameMapping.Add(7, "æ­¦æ±‰");
+        nameMapping.Add(8, "å—æ˜Œ");
+        nameMapping.Add(9, "æ²ˆé˜³");
+        nameMapping.Add(10, "é•¿æ˜¥");
+        nameMapping.Add(11, "å“ˆå°”æ»¨");
+        nameMapping.Add(12, "å‘¼å’Œæµ©ç‰¹");
+        nameMapping.Add(13, "ä¹Œé²æœ¨é½");
+        nameMapping.Add(14, "æ‹‰è¨");
+        nameMapping.Add(15, "è¥¿å®");
+        nameMapping.Add(16, "å…°å·");
+        nameMapping.Add(17, "é“¶å·");
+        nameMapping.Add(18, "è¥¿å®‰");
+        nameMapping.Add(19, "å¤ªåŸ");
+        nameMapping.Add(20, "éƒ‘å·");
+        nameMapping.Add(21, "æµå—");
+        nameMapping.Add(22, "é’å²›");
+        nameMapping.Add(23, "å—äº¬");
+        nameMapping.Add(24, "åˆè‚¥");
+        nameMapping.Add(25, "æ­å·");
+        nameMapping.Add(26, "ç¦å·");
+        nameMapping.Add(27, "é•¿æ²™");
+        nameMapping.Add(28, "è´µé˜³");
+        nameMapping.Add(29, "æ˜†æ˜");
+        nameMapping.Add(30, "çŸ³å®¶åº„");
+        nameMapping.Add(31, "å—å®");
+        nameMapping.Add(32, "æµ·å£");
     }
 
 
