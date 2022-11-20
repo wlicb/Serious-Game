@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using Newtonsoft.Json.Linq;
 using System;
 using static DataManager;
 using static InfoBlock;

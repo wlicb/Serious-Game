@@ -48,6 +48,10 @@ public class InfoBlock : MonoBehaviour
         updateContent(index);
     }
 
+    public string returnCityName(int index)
+    {
+        return nameMapping[index];
+    }
     public void updateContent(int index) {
         name.GetComponent<Text>().text = nameMapping[index];
         description.GetComponent<Text>().text = briefDescription[index];

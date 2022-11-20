@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using Newtonsoft.Json.Linq;
 using System;
 
 public class DataManager : MonoBehaviour
@@ -125,6 +124,21 @@ public class DataManager : MonoBehaviour
 
     public int getSatisfaction(int i) {
         return satisfactions[i];
+    }
+
+    public int getMaxInfectionCity()
+    {
+        int city_index = 0;
+        int max = infections[0];
+        for (var i = 1; i < numCities; i++)
+        {
+            if (infections[i] > max)
+            {
+                city_index = i;
+                max = infections[i];
+            }
+        }
+        return city_index;
     }
 
     public int getTotalInfection() {
