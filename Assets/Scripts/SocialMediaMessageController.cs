@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using static DataManager;
 using static InfoBlock;
 using TMPro;
 
 public class SocialMediaMessageController : MonoBehaviour
 {
-    public GameObject[] messagePrefab;
+    public GameObject messagePrefab;
     
     private IEnumerator coroutine;
     
@@ -29,28 +30,31 @@ public class SocialMediaMessageController : MonoBehaviour
         {"我们要相信政府啊", 0},
         {"坚定支持政府一切措施", 0},
         {"我们能想到的政府肯定能想到", 0},
-        {"{0}的疫情已经在好转啦 大家要乐观", 1},
+        {"{0}的疫情已经在好转啦，大家要乐观", 1},
         {"只要大家团结一致我们肯定能度过难关的", 0}
     };
 
     private IDictionary<string, int> neutural_comment = new Dictionary<string, int>()
     {
-        {"大家先不要着急评判 等一段时间再看", 0},
+        {"大家先不要着急评判，等一段时间再看", 0},
         {"虽然大家现在很难受但也不要被带节奏" , 0},
         {"目前的政策有利有弊", 0 }
     };
 
     private IDictionary<string, int> negative_comment = new Dictionary<string, int>()
     {
-        {"这{0}政府就是啥事都做不好 任由疫情扩散", 1},
+        {"这{0}政府就是啥事都做不好，任由疫情扩散\U0001F605", 1},
         {"为什么{0}政府一点人文关怀都没有啊", 1 },
         {"{0}政府可以给市民们最基本的尊重吗", 1 },
-        {"疫情这么严重 连门都不敢出了555", 0 },
-        {"没做啥事就被封在家里 无妄之灾", 0 },
+        {"疫情这么严重，连门都不敢出了555", 0 },
+        {"没做啥事就被封在家里，无妄之灾", 0 },
         {"{0}口号喊得那么响却一点实事都不做", 1 },
         {"这{0}疫情也太可怕了吧",1 }
     };
 
+    private string[] nickname_list;
+
+    public Sprite[] avatars;
 
 
     // Start is called before the first frame update
@@ -61,6 +65,8 @@ public class SocialMediaMessageController : MonoBehaviour
         StartCoroutine(coroutine);
         dataManager = dataManagerObject.GetComponent<DataManager>();
         makeMapping();
+        nickname_list = new string[avatars.Length];
+        nicknameMapping();
     }
 
     // Update is called once per frame
@@ -80,8 +86,8 @@ public class SocialMediaMessageController : MonoBehaviour
             int x = UnityEngine.Random.Range(0, 101);
             
             var numMessages = gameObject.transform.childCount;
-            if (numMessages < 3) {
-                var newMessage = Instantiate(messagePrefab[messageCount], new Vector3(transform.position.x, transform.position.y, transform.position.z) , Quaternion.identity);
+            if (numMessages < 4) {
+                var newMessage = Instantiate(messagePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z) , Quaternion.identity);
                 newMessage.transform.SetParent(gameObject.transform);
                 newMessage.transform.localScale = new Vector3(1, 1, 1);
 
@@ -140,19 +146,23 @@ public class SocialMediaMessageController : MonoBehaviour
                         newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
                     }
                 }
-                var y = newMessage.transform.position.y;
-                if (numMessages == 0) {
-                    y += newMessage.transform.localScale.y;
-                } else if (numMessages >= 2) {
-                    y -= newMessage.transform.localScale.y;
-                }
+                var y = -(newMessage.transform.localScale.y) * numMessages - 0.2f * numMessages;
                 newMessage.transform.position = new Vector3(newMessage.transform.position.x, y, newMessage.transform.localScale.z);
                 newMessage.transform.SetParent(gameObject.transform);
+
+
+                System.Random randname = new System.Random();
+                var nameIdx = randname.Next(nickname_list.Length);
+                newMessage.transform.GetChild(1).GetComponent<Text>().text = nickname_list[nameIdx];
+                newMessage.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = avatars[nameIdx];
+
+
             } else {
                 var message1 = gameObject.transform.GetChild(0).gameObject;
                 var message2 = gameObject.transform.GetChild(1).gameObject;
                 var message3 = gameObject.transform.GetChild(2).gameObject;
-                var newMessage = Instantiate(messagePrefab[messageCount % 3], message3.transform.position, Quaternion.identity);
+                var message4 = gameObject.transform.GetChild(3).gameObject;
+                var newMessage = Instantiate(messagePrefab, message4.transform.position, Quaternion.identity);
                 newMessage.transform.SetParent(gameObject.transform);
                 newMessage.transform.localScale = new Vector3(1, 1, 1);
 
@@ -212,10 +222,19 @@ public class SocialMediaMessageController : MonoBehaviour
                         newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
                     }
                 }
+                message4.transform.position = message3.transform.position;
                 message3.transform.position = message2.transform.position;
                 message2.transform.position = message1.transform.position;
                 Destroy(message1);
+
+
+
+                System.Random randname = new System.Random();
+                var nameIdx = randname.Next(nickname_list.Length);
+                newMessage.transform.GetChild(1).GetComponent<Text>().text = nickname_list[nameIdx];
+                newMessage.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = avatars[nameIdx];
             }
+
 
             messageCount++;
             
@@ -256,6 +275,12 @@ public class SocialMediaMessageController : MonoBehaviour
         nameMapping.Add(30, "石家庄");
         nameMapping.Add(31, "南宁");
         nameMapping.Add(32, "海口");
+    }
+
+    private void nicknameMapping() {
+        nickname_list[0] = "狗狗";
+        nickname_list[1] = "kitty";
+        nickname_list[2] = "阿巴阿巴";
     }
 
 

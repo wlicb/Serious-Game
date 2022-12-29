@@ -12,6 +12,8 @@ public class DataManager : MonoBehaviour
 
     private int traceDays = 7;
 
+    private int policyCount = 7;
+
     // may add deathCaseRanges, satisfactionRanges here, but for demo purposes we are just having variation on dailyCaseRange
 
     private int[] infections;
@@ -20,6 +22,8 @@ public class DataManager : MonoBehaviour
 
 
     private int[,] increaseHistory;
+
+    private float[,] policyValue;
 
     private int[,] deathHistory;
 
@@ -49,6 +53,7 @@ public class DataManager : MonoBehaviour
         satisfactions = new int[numCities];
         increaseHistory = new int[numCities, traceDays];
         deathHistory = new int[numCities, traceDays];
+        policyValue = new float[numCities, policyCount];
         for (var i = 0; i < numCities; i++) {
             infections[i] = 0;
             deaths[i] = 0;
@@ -57,6 +62,9 @@ public class DataManager : MonoBehaviour
             for (var j = 0; j < traceDays; j++) {
                 increaseHistory[i,j] = 0;
                 deathHistory[i,j] = 0;
+            }
+            for (var k = 0; k < policyCount; k++) {
+                policyValue[i,k] = 0;
             }
         }
         // dayPassed = 0;
@@ -96,6 +104,14 @@ public class DataManager : MonoBehaviour
             }
             date = date.AddDays(1);
         }
+    }
+
+    public void updatePolicyIndex(int cityIndex, int policyIndex, float value) {
+        if (cityIndex == -1) {
+            return;
+        }
+        policyValue[cityIndex, policyIndex] = value;
+        print("city " + cityIndex + " policy " + policyIndex + " is updated to " + value); 
     }
 
     public int getDateDay() {
@@ -214,5 +230,18 @@ public class DataManager : MonoBehaviour
 
     public DateTime getCurrentDate() {
         return date;
+    }
+
+    public float getPolicyIndex(int cityIndex, int policyIndex) {
+        return policyValue[cityIndex, policyIndex];
+    }
+
+    public float getAveragePolicyIndex(int policyIndex) {
+        float result = 0.0f;
+        for (var i = 0; i < numCities; i++) {
+            result += policyValue[i,policyIndex];
+        }
+        result /= numCities;
+        return result;
     }
 }

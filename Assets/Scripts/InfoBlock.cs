@@ -44,7 +44,7 @@ public class InfoBlock : MonoBehaviour
     public void show(int index) {
         gameObject.SetActive(true);
         // gameObject.transform.SetParent(ChinaMap.transform.GetChild(index + 1));
-        gameObject.transform.localPosition = ChinaMap.transform.GetChild(index + 4).transform.localPosition;
+        gameObject.transform.localPosition = ChinaMap.transform.GetChild(index + 5).transform.localPosition;
         updateContent(index);
     }
 

@@ -26,8 +26,9 @@ public class Wavecircle : MonoBehaviour
 
     public void UpdatePercent(float f)
     {
-        wave.position = s.position + (e.position - s.position) * f / 100;
+        wave.localPosition = new Vector3(wave.localPosition.x, s.localPosition.y + (e.localPosition.y - s.localPosition.y) * f / 100, wave.localPosition.z);
 
         theText.text = Mathf.RoundToInt(f) + "%";
+        // print(wave.localPosition.y);
     }
 }

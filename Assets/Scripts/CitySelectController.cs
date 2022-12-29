@@ -11,6 +11,8 @@ public class CitySelectController : MonoBehaviour
 
     public GameObject dataPaneController;
 
+    public GameObject policyController;
+
     void Start() {
         // nameMapping = new Dictionary<string, string>();
         nameMapping.Add(0, "Shanghai");
@@ -55,5 +57,6 @@ public class CitySelectController : MonoBehaviour
         // print(index);
         place.GetComponent<Text>().text = nameMapping[index];
         dataPaneController.GetComponent<DataPaneController>().changeCity(index);
+        policyController.GetComponent<policyController>().changeCity(index);
     }
 }
