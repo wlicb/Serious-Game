@@ -11,13 +11,9 @@ using System;
 public class LineChartController : MonoBehaviour
 {
 
-    public GameObject lineLeft;
+    public GameObject line;
 
-    public GameObject coordinatesLeft;
-
-    public GameObject lineRight;
-
-    public GameObject coordinatesRight;
+    public GameObject coordinates;
 
     public GameObject x;
 
@@ -37,15 +33,11 @@ public class LineChartController : MonoBehaviour
 
     }
 
-    public void UpdateInfectionLine(int[] values) {
-        UpdatePoints(values, lineLeft, coordinatesLeft);
+    public void UpdateLine(int[] values) {
+        UpdatePoints(values, line, coordinates);
     }
 
-    public void UpdateDeathLine(int[] values) {
-        UpdatePoints(values, lineRight, coordinatesRight);
-    }
-
-    private void UpdatePoints(int[] values, GameObject line, GameObject coorindates) {
+    public void UpdatePoints(int[] values, GameObject line, GameObject coorindates) {
         GameObject[] points = new GameObject[line.transform.childCount];
         GameObject[] labels = new GameObject[coorindates.transform.childCount];
         for (int i = 0; i < line.transform.childCount; i++)

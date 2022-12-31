@@ -25,9 +25,13 @@ public class DataPaneController : MonoBehaviour
 
     private Wavecircle satisfactionScript;
 
-    public GameObject lineChart;
+    public GameObject lineChartCases;
 
-    private LineChartController lineChartController;
+    public GameObject lineChartDeath;
+
+    private LineChartController lineChartControllerCases;
+
+    private LineChartController lineChartControllerDeath;
 
     public GameObject dateObject;
 
@@ -46,7 +50,8 @@ public class DataPaneController : MonoBehaviour
         deathScript = deathFigure.GetComponent<UpdateInfection>();
         satisfactionScript = satisfactionFigure.GetComponent<Wavecircle>();
         date = dateObject.GetComponent<DateContent>();
-        lineChartController = lineChart.GetComponent<LineChartController>();
+        lineChartControllerCases = lineChartCases.GetComponent<LineChartController>();
+        lineChartControllerDeath = lineChartDeath.GetComponent<LineChartController>();
     }
 
     // Update is called once per frame
@@ -81,16 +86,17 @@ public class DataPaneController : MonoBehaviour
             infectionHistory = dataManager.getTotalIncreaseHistory();
         else
             infectionHistory = dataManager.getIncreaseHistory(CityIndex);
-        lineChartController.UpdateInfectionLine(infectionHistory);
+        lineChartControllerCases.UpdateLine(infectionHistory);
 
         var deathHistory = new int[k];
         if (CityIndex == -1)
-            infectionHistory = dataManager.getTotalDeathHistory();
+            deathHistory = dataManager.getTotalDeathHistory();
         else
-            infectionHistory = dataManager.getDeathHistory(CityIndex);
-        lineChartController.UpdateDeathLine(infectionHistory);
+            deathHistory = dataManager.getDeathHistory(CityIndex);
+        lineChartControllerDeath.UpdateLine(deathHistory);
 
-        lineChartController.UpdateX(dataManager.getCurrentDate());
+        lineChartControllerCases.UpdateX(dataManager.getCurrentDate());
+        lineChartControllerDeath.UpdateX(dataManager.getCurrentDate());
         
     }
 

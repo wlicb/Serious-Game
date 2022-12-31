@@ -97,7 +97,7 @@ public class SocialMediaMessageController : MonoBehaviour
                     List<string> keyList = new List<string>(positive_comment.Keys);
                     System.Random rand = new System.Random();
                     string randomKey = keyList[rand.Next(keyList.Count)];
-                    print(randomKey);
+                    // print(randomKey);
                     if(positive_comment[randomKey] == 0)
                     {
                         newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
@@ -173,7 +173,7 @@ public class SocialMediaMessageController : MonoBehaviour
                     List<string> keyList = new List<string>(positive_comment.Keys);
                     System.Random rand = new System.Random();
                     string randomKey = keyList[rand.Next(keyList.Count)];
-                    print(randomKey);
+                    // print(randomKey);
                     if(positive_comment[randomKey] == 0)
                     {
                         newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
