@@ -240,6 +240,12 @@ public class SocialMediaMessageController : MonoBehaviour
             
         }
     }
+
+    public void endCoroutine() {
+        StopAllCoroutines();
+    }
+
+
     private void makeMapping()
     {
         nameMapping.Add(0, "上海");

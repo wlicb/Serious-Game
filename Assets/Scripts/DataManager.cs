@@ -3,10 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+// using static PopupController;
 
 public class DataManager : MonoBehaviour
 {
     public int[] dailyCaseRanges;
+
+    public GameObject popupObject;
+
+    private PopupController popupController;
+
+    public GameObject gameEndControllerObject;
+    
+    private GameEndController gameEndController;
+
+    public GameObject socialMediaMessageControllerObject;
+    
+    private SocialMediaMessageController socialMediaMessageController;
+
+    private int satisfactionPopupValue = 5;
+
+    private int deathPopupValue = 10;
 
     private int numCities;
 
@@ -32,6 +49,8 @@ public class DataManager : MonoBehaviour
     // private int dayPassed;
 
     private int[] deaths;
+
+    private int[] deathIncrease;
     private int[] satisfactions;
 
     private DateTime date;
@@ -40,16 +59,26 @@ public class DataManager : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    private DateTime startDate;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        popupController = popupObject.GetComponent<PopupController>();
+
+        gameEndController = gameEndControllerObject.GetComponent<GameEndController>();
+
+        socialMediaMessageController = socialMediaMessageControllerObject.GetComponent<SocialMediaMessageController>();
+
+        startDate = new DateTime(2022, 3, 1);
         date = new DateTime(2022, 3, 1);
         startingDate = new DateTime(2022, 3, 1);
         numCities = dailyCaseRanges.Length;
         infections = new int[numCities];
         lastIncrease = new int[numCities];
         deaths = new int[numCities];
+        deathIncrease = new int[numCities];
         satisfactions = new int[numCities];
         increaseHistory = new int[numCities, traceDays];
         deathHistory = new int[numCities, traceDays];
@@ -57,6 +86,7 @@ public class DataManager : MonoBehaviour
         for (var i = 0; i < numCities; i++) {
             infections[i] = 0;
             deaths[i] = 0;
+            deathIncrease[i] = 0;
             lastIncrease[i] = 0;
             satisfactions[i] = 100;
             for (var j = 0; j < traceDays; j++) {
@@ -75,6 +105,7 @@ public class DataManager : MonoBehaviour
 
     private IEnumerator updateData(float waitTime)
     {
+        // The main game loop
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
@@ -83,7 +114,9 @@ public class DataManager : MonoBehaviour
             for (var i = 0; i < numCities; i++) {
                 lastIncrease[i] = new System.Random().Next(dailyCaseRanges[i]);
                 infections[i] += lastIncrease[i];
-                deaths[i] += new System.Random().Next(10);
+                double factor = new System.Random().NextDouble()  * 0.1;
+                deathIncrease[i] = (int)(lastIncrease[i] * factor);
+                deaths[i] += deathIncrease[i];
                 satisfactions[i] -= new System.Random().Next(10);
                 if (satisfactions[i] <= 0) {
                     satisfactions[i] = 0;
@@ -103,8 +136,36 @@ public class DataManager : MonoBehaviour
                 // increaseHistory[dayPassed] = lastIncrease;
             }
             date = date.AddDays(1);
+
+            // check end condition
+            for (var i = 0; i < numCities; i++) {
+                if (satisfactions[i] == 0) {
+                    gameEndController.showGameEndScene(i, getDaysPassed());
+                    socialMediaMessageController.endCoroutine();
+                    yield break;
+                }
+            }
+
+            // show satisfaction popup
+            for (var i = 0; i < numCities; i++) {
+                if (satisfactions[i] < satisfactionPopupValue) {
+                    popupController.showPopup(i, 0);
+                } else {
+                    popupController.hidePopup(i, 0);
+                }
+            }
+
+            // show death popup
+            for (var i = 0; i < numCities; i++) {
+                if (deathIncrease[i] > deathPopupValue) {
+                    popupController.showPopup(i, 1);
+                } else {
+                    popupController.hidePopup(i, 1);
+                }
+            }
         }
     }
+
 
     public void updatePolicyIndex(int cityIndex, int policyIndex, float value) {
         if (cityIndex == -1) {
@@ -230,6 +291,10 @@ public class DataManager : MonoBehaviour
 
     public DateTime getCurrentDate() {
         return date;
+    }
+
+    public int getDaysPassed() {
+        return (int)((date - startDate).TotalDays);
     }
 
     public float getPolicyIndex(int cityIndex, int policyIndex) {
