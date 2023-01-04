@@ -24,6 +24,7 @@ public class GameEndController : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,7 @@ public class GameEndController : MonoBehaviour
         
     }
 
-    public void showGameEndScene(int index, int days) {
+    public void showGameEndScene(int index, int days, int type, int threshold) {
         print(index + "Game End");
         // mainCanvas.interactable = false;
         // targetZoom -= 1 * zoomFactor;
@@ -48,12 +49,32 @@ public class GameEndController : MonoBehaviour
         // print(cam.orthographicSize);
         // cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoom, Time.deltaTime * zoomLerpSpeed);
         // print(cam.orthographicSize);
-        
-        gameEndCanvas.SetActive(true);
-        gameEndCanvas.transform.GetChild(0).GetChild(2).gameObject.GetComponent<Text>().text = 
-                    "Citizen satisfaction dropped to 0 at " + nameMapping[index];
-        gameEndCanvas.transform.GetChild(0).GetChild(3).gameObject.GetComponent<Text>().text = 
-                    "You survived 0 days in the outbreak of COVID-19";
+        if (type == 0) {
+            gameEndCanvas.SetActive(true);
+            gameEndCanvas.transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = 
+                        "Game Over";
+            gameEndCanvas.transform.GetChild(0).GetChild(2).gameObject.GetComponent<Text>().text = 
+                        "Citizen satisfaction dropped to " + threshold + "% at " + nameMapping[index];
+            gameEndCanvas.transform.GetChild(0).GetChild(3).gameObject.GetComponent<Text>().text = 
+                        "You survived " + days + " days in the outbreak of COVID-19";
+        } else if (type == 1) {
+            gameEndCanvas.SetActive(true);
+            gameEndCanvas.transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = 
+                        "Game Over";
+            gameEndCanvas.transform.GetChild(0).GetChild(2).gameObject.GetComponent<Text>().text = 
+                        "Total Death exceeds " + threshold + " at " + nameMapping[index];
+            gameEndCanvas.transform.GetChild(0).GetChild(3).gameObject.GetComponent<Text>().text = 
+                        "You survived " + days + " days in the outbreak of COVID-19";
+        } else {
+            gameEndCanvas.SetActive(true);
+            gameEndCanvas.transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = 
+                        "Congratulations";
+            gameEndCanvas.transform.GetChild(0).GetChild(2).gameObject.GetComponent<Text>().text = 
+                        "";
+            gameEndCanvas.transform.GetChild(0).GetChild(3).gameObject.GetComponent<Text>().text = 
+                        "You managed to survive " + days + " days in the outbreak of COVID-19";
+        }
+
 
         
     }
@@ -64,6 +85,15 @@ public class GameEndController : MonoBehaviour
         SceneManager.SetActiveScene(scene);
         SceneManager.LoadScene(scene.name);
         print("reloading");
+    }
+
+    public void returnMain() {
+        // Scene startScene = SceneManager.GetSceneByName("StartScene");
+        // Scene scene = SceneManager.GetActiveScene();
+        // SceneManager.UnloadScene(scene.buildIndex); 
+        // print(startScene.name);
+        SceneManager.LoadScene("StartScene");
+        // SceneManager.SetActiveScene(startScene);
     }
 
     private void makeMapping() {

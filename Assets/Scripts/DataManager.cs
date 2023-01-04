@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using System.Threading;
 // using static PopupController;
 
 public class DataManager : MonoBehaviour
@@ -30,6 +31,12 @@ public class DataManager : MonoBehaviour
     private int traceDays = 7;
 
     private int policyCount = 7;
+
+    private int satisfactionThreshold = 0;
+
+    private int deathThreshold = 1000;
+
+    private int successDays = 60;
 
     // may add deathCaseRanges, satisfactionRanges here, but for demo purposes we are just having variation on dailyCaseRange
 
@@ -65,6 +72,8 @@ public class DataManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Thread.Sleep(2000);
+
         popupController = popupObject.GetComponent<PopupController>();
 
         gameEndController = gameEndControllerObject.GetComponent<GameEndController>();
@@ -99,6 +108,7 @@ public class DataManager : MonoBehaviour
         }
         // dayPassed = 0;
         // increaseHistory[dayPassed] = lastIncrease;
+
         coroutine = updateData(5.0f);
         StartCoroutine(coroutine);
     }
@@ -138,13 +148,29 @@ public class DataManager : MonoBehaviour
             date = date.AddDays(1);
 
             // check end condition
+            if (getDaysPassed() >= successDays) {
+                gameEndController.showGameEndScene(0, getDaysPassed(), 2, 0);
+                socialMediaMessageController.endCoroutine();
+                yield break;
+            }
+
             for (var i = 0; i < numCities; i++) {
-                if (satisfactions[i] == 0) {
-                    gameEndController.showGameEndScene(i, getDaysPassed());
+                if (satisfactions[i] <= satisfactionThreshold) {
+                    gameEndController.showGameEndScene(i, getDaysPassed(), 0, satisfactionThreshold);
                     socialMediaMessageController.endCoroutine();
                     yield break;
                 }
             }
+
+            for (var i = 0; i < numCities; i++) {
+                if (deaths[i] >= deathThreshold) {
+                    gameEndController.showGameEndScene(i, getDaysPassed(), 1, deathThreshold);
+                    socialMediaMessageController.endCoroutine();
+                    yield break;
+                }
+            }
+
+            // 
 
             // show satisfaction popup
             for (var i = 0; i < numCities; i++) {

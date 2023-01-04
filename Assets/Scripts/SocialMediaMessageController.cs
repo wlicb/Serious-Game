@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using static DataManager;
 using static InfoBlock;
 using TMPro;
+using System.Threading;
 
 public class SocialMediaMessageController : MonoBehaviour
 {
@@ -60,6 +61,8 @@ public class SocialMediaMessageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Thread.Sleep(2000);
+
         messageCount = 0;
         coroutine = updateMessage(1.0f);
         StartCoroutine(coroutine);
