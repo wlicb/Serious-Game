@@ -50,12 +50,22 @@ public class PopupController : MonoBehaviour
     public void hidePopup(int index, int type) {
         if (type == 0) {
             if (satisfactionList[index] != null) {
-                Destroy(satisfactionList[index]);
+                var animator = satisfactionList[index].GetComponent<Animator>();
+                animator.Play("Satisfaction Popup Disappear");
+                // float animationLength = animator.GetCurrentAnimatorStateInfo(0).length;
+                // yield return new WaitForSecondsRealtime(animationLength);
+
+                Destroy(satisfactionList[index], 2f);
                 satisfactionList[index] = null;
             }
         } else {
             if (deathList[index] != null) {
-                Destroy(deathList[index]);
+                var animator = deathList[index].GetComponent<Animator>();
+                animator.Play("Death Popup Disappear");
+                // float animationLength = animator.GetCurrentAnimatorStateInfo(0).length;
+                // yield return new WaitForSecondsRealtime(animationLength);
+
+                Destroy(deathList[index], 2f);
                 deathList[index] = null;
             }
         }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class GameStartController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameStartController : MonoBehaviour
     public GameObject mainCanvas;
 
     public GameObject ruleCanvas;
+
+    // public Animator changeSceneAnimator;
 
 
     // Start is called before the first frame update
@@ -24,17 +27,39 @@ public class GameStartController : MonoBehaviour
     }
 
     public void loadGame() {
-        mainCanvas.GetComponent<Animator>().Play("Start Main Cavnas Hide");
+        var coroutine = loadGameHelper();
+        StartCoroutine(coroutine);
+    }
+
+    private IEnumerator loadGameHelper() {
+        mainCanvas.GetComponent<Animator>().Play("Start Main Canvas Hide");
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("SampleScene");
     }
 
     public void loadRule() {
-        mainCanvas.SetActive(false);
         ruleCanvas.SetActive(true);
+        var coroutine = loadRuleHelper();
+        StartCoroutine(coroutine);
+    }
+
+    private IEnumerator loadRuleHelper() {
+        mainCanvas.GetComponent<Animator>().Play("Start Main Canvas Hide");
+        yield return new WaitForSeconds(1f);
+        mainCanvas.SetActive(false);
     }
 
     public void returnMain() {
-        ruleCanvas.SetActive(false);
         mainCanvas.SetActive(true);
+        var coroutine = returnMainHelper();
+        StartCoroutine(coroutine);
     }
+
+    private IEnumerator returnMainHelper() {
+        ruleCanvas.GetComponent<Animator>().Play("Rule Canvas Hide");
+        yield return new WaitForSeconds(1f);
+        ruleCanvas.SetActive(false);
+
+    }
+
 }

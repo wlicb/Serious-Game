@@ -21,7 +21,6 @@ public class policyController : MonoBehaviour
         cityIndex = -1;
         for (var i = 0; i < sliders.Length; i++) {
             sliders[i].enabled = false;
-            return;
         }
     }
 

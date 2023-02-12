@@ -55,8 +55,30 @@ public class LineChart : MonoBehaviour
              
                 allPoint[a].GetChild(0).GetComponent<RectTransform>().sizeDelta =new Vector2( v.magnitude,50);
                 allPoint[a].GetChild(0).right = v;
-
             }
         }
+    }
+
+    public void playAnimation(int index) {
+        if (index == 0) {
+            for (int a = 0; a < allPoint.Count-1; a++)
+            {
+
+                if(allPoint[a+1]!=null)
+                {
+                    allPoint[a].GetChild(0).GetComponent<Animator>().Play("Line Infection");
+                }
+            }
+        } else {
+            for (int a = 0; a < allPoint.Count-1; a++)
+            {
+
+                if(allPoint[a+1]!=null)
+                {
+                    allPoint[a].GetChild(0).GetComponent<Animator>().Play("Line Death");
+                }
+            }
+        }
+
     }
 }

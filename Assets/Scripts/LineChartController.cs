@@ -17,6 +17,8 @@ public class LineChartController : MonoBehaviour
 
     public GameObject x;
 
+    public int index;
+
     public void UpdateX(DateTime currentDate) {
         int numDays = 7;
         var days = new DateTime[numDays];
@@ -35,6 +37,7 @@ public class LineChartController : MonoBehaviour
 
     public void UpdateLine(int[] values) {
         UpdatePoints(values, line, coordinates);
+        // line.GetComponent<LineChart>().playAnimation(index);
     }
 
     public void UpdatePoints(int[] values, GameObject line, GameObject coorindates) {

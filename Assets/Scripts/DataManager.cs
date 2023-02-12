@@ -8,7 +8,10 @@ using System.Threading;
 
 public class DataManager : MonoBehaviour
 {
-    public int[] dailyCaseRanges;
+
+    public GameObject modelObj;
+
+    private Model model;
 
     public GameObject popupObject;
 
@@ -26,7 +29,7 @@ public class DataManager : MonoBehaviour
 
     private int deathPopupValue = 10;
 
-    private int numCities;
+    private int numCities = 33;
 
     private int traceDays = 7;
 
@@ -37,8 +40,6 @@ public class DataManager : MonoBehaviour
     private int deathThreshold = 1000;
 
     private int successDays = 60;
-
-    // may add deathCaseRanges, satisfactionRanges here, but for demo purposes we are just having variation on dailyCaseRange
 
     private int[] infections;
 
@@ -73,6 +74,7 @@ public class DataManager : MonoBehaviour
     void Start()
     {
         // Thread.Sleep(2000);
+        model = modelObj.GetComponent<Model>();
 
         popupController = popupObject.GetComponent<PopupController>();
 
@@ -83,7 +85,6 @@ public class DataManager : MonoBehaviour
         startDate = new DateTime(2022, 3, 1);
         date = new DateTime(2022, 3, 1);
         startingDate = new DateTime(2022, 3, 1);
-        numCities = dailyCaseRanges.Length;
         infections = new int[numCities];
         lastIncrease = new int[numCities];
         deaths = new int[numCities];
@@ -109,7 +110,7 @@ public class DataManager : MonoBehaviour
         // dayPassed = 0;
         // increaseHistory[dayPassed] = lastIncrease;
 
-        coroutine = updateData(5.0f);
+        coroutine = updateData(8.0f);
         StartCoroutine(coroutine);
     }
 
@@ -122,15 +123,19 @@ public class DataManager : MonoBehaviour
             // dayPassed++;
             // update data: for now use random data, will use model to predict data in the future
             for (var i = 0; i < numCities; i++) {
-                lastIncrease[i] = new System.Random().Next(dailyCaseRanges[i]);
-                infections[i] += lastIncrease[i];
-                double factor = new System.Random().NextDouble()  * 0.1;
-                deathIncrease[i] = (int)(lastIncrease[i] * factor);
-                deaths[i] += deathIncrease[i];
-                satisfactions[i] -= new System.Random().Next(10);
-                if (satisfactions[i] <= 0) {
-                    satisfactions[i] = 0;
+                var policies = new int[policyCount];
+                for (var m = 0; m < policyCount; m++) {
+                    policies[m] = (int)policyValue[i, m];
                 }
+
+                lastIncrease[i] = model.calculateNewDailyInfection(i, lastIncrease[i], policies);
+                infections[i] += lastIncrease[i];
+
+                deathIncrease[i] = model.calculateNewDailyDeath(i, lastIncrease[i]);
+                deaths[i] += deathIncrease[i];
+
+                satisfactions[i] = model.calculateNewSatisfaction(i, lastIncrease[i], deathIncrease[i], policies, satisfactions[i]);
+
                 for (var j = 0; j < traceDays; j++) {
                     if (j == (traceDays - 1)) {
                         increaseHistory[i,j] = lastIncrease[i];
@@ -335,4 +340,5 @@ public class DataManager : MonoBehaviour
         result /= numCities;
         return result;
     }
+
 }

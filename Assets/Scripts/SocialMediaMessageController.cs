@@ -64,7 +64,7 @@ public class SocialMediaMessageController : MonoBehaviour
         // Thread.Sleep(2000);
 
         messageCount = 0;
-        coroutine = updateMessage(1.0f);
+        coroutine = updateMessage(2.0f);
         StartCoroutine(coroutine);
         dataManager = dataManagerObject.GetComponent<DataManager>();
         makeMapping();
@@ -165,7 +165,28 @@ public class SocialMediaMessageController : MonoBehaviour
                 var message2 = gameObject.transform.GetChild(1).gameObject;
                 var message3 = gameObject.transform.GetChild(2).gameObject;
                 var message4 = gameObject.transform.GetChild(3).gameObject;
-                var newMessage = Instantiate(messagePrefab, message4.transform.position, Quaternion.identity);
+
+                StartCoroutine(moveMessageHelper(message1, message2, message3, message4, x));
+                
+                
+            }
+
+            messageCount++;
+            
+        }
+    }
+
+    public IEnumerator moveMessageHelper(GameObject message1, GameObject message2, GameObject message3, GameObject message4, int x) {
+        message1.GetComponent<Animator>().Play("Message Hide");
+        yield return new WaitForSeconds(1f);
+        var newPos = message4.transform.position;
+        float step = 119.03f;
+        message4.transform.position = Vector3.MoveTowards(message4.transform.position, message3.transform.position, step);
+        // message4.transform.position = message3.transform.position;
+        message3.transform.position = Vector3.MoveTowards(message3.transform.position, message2.transform.position, step);
+        message2.transform.position = Vector3.MoveTowards(message2.transform.position, message1.transform.position, step);
+        Destroy(message1);
+        var newMessage = Instantiate(messagePrefab, newPos, Quaternion.identity);
                 newMessage.transform.SetParent(gameObject.transform);
                 newMessage.transform.localScale = new Vector3(1, 1, 1);
 
@@ -225,10 +246,7 @@ public class SocialMediaMessageController : MonoBehaviour
                         newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
                     }
                 }
-                message4.transform.position = message3.transform.position;
-                message3.transform.position = message2.transform.position;
-                message2.transform.position = message1.transform.position;
-                Destroy(message1);
+                
 
 
 
@@ -236,12 +254,6 @@ public class SocialMediaMessageController : MonoBehaviour
                 var nameIdx = randname.Next(nickname_list.Length);
                 newMessage.transform.GetChild(1).GetComponent<Text>().text = nickname_list[nameIdx];
                 newMessage.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = avatars[nameIdx];
-            }
-
-
-            messageCount++;
-            
-        }
     }
 
     public void endCoroutine() {

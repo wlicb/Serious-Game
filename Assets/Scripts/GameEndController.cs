@@ -41,14 +41,6 @@ public class GameEndController : MonoBehaviour
 
     public void showGameEndScene(int index, int days, int type, int threshold) {
         print(index + "Game End");
-        // mainCanvas.interactable = false;
-        // targetZoom -= 1 * zoomFactor;
-        // print(cam.transform.position);
-        // cam.transform.position = ChinaMap.transform.GetChild(index + 6).transform.position;
-        // print(cam.transform.position);
-        // print(cam.orthographicSize);
-        // cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoom, Time.deltaTime * zoomLerpSpeed);
-        // print(cam.orthographicSize);
         if (type == 0) {
             gameEndCanvas.SetActive(true);
             gameEndCanvas.transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = 
