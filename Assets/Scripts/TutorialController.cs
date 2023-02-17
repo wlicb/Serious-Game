@@ -2,93 +2,132 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static GameRoundValue;
 
 public class TutorialController : MonoBehaviour
 {
-    public GameObject helpCanvas;
 
-    // public GameObject pauseButton;
+    public GameObject[] pages;
 
-    public Button button;
+    public GameObject pauseButton;
 
+    // public GameObject ShanghaiDot;
 
+    public GameObject dataPaneController;
 
-    private int currentContent;
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentContent = 0;
-    }
+    public GameObject schoolClosingSlider;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // public GameObject chinaMap;
 
-    public void showHelpScene() {
-        var coroutine = showHelpSceneHelper();
-        StartCoroutine(coroutine);
-    }
+    private int currentIndex = -1;
 
-    private IEnumerator showHelpSceneHelper() {
-        helpCanvas.SetActive(true);
-        helpCanvas.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        // pauseButton.GetComponent<PlayController>().toggle();
-        button.interactable = false;
-        Time.timeScale = 0;
-    }
-
-
-    public void Next() {
-        if (currentContent < (helpCanvas.transform.GetChild(0).childCount - 1)) {
-            changeContent(currentContent);
-            currentContent++;
-        } else {
-            hideHelpScene(currentContent);
-            currentContent = 0;
+    void Awake() {
+        if (GameRoundValue.roundCount == 1) {
+            initialze();
         }
     }
 
-    public void Skip() {
-        hideHelpScene(currentContent);
-        currentContent = 0;
-    }
 
-    private void hideHelpScene(int index) {
-        var coroutine = hideHelpHelper(index);
+    public void initialze() {
+        // gameObject.SetActive(true);
+        pages[0].SetActive(true);
+        currentIndex = 0;
+        // pauseButton.GetComponent<PlayController>().pause();
+        var coroutine = initializeHelper();
         StartCoroutine(coroutine);
     }
 
-    private IEnumerator hideHelpHelper(int index) {
-        string name = "Hide Content " + (index + 1);
-        print(name);
-        helpCanvas.transform.GetChild(0).GetChild(index).gameObject.GetComponent<Animator>().Play(name);
-        helpCanvas.GetComponent<Animator>().Play("Hide Help Canvas");
+    public IEnumerator initializeHelper() {
         yield return new WaitForSeconds(1f);
-        helpCanvas.transform.GetChild(0).GetChild(index).gameObject.SetActive(false);
-        helpCanvas.SetActive(false);
-        // pauseButton.GetComponent<PlayController>().toggle();
-        button.interactable = true;
-        Time.timeScale = 1;
+        pauseButton.GetComponent<PlayController>().pause();
     }
 
-    private void changeContent(int index) {
-        var coroutine = changeContentHelper(index);
+    // public void nextPage() {
+    //     pages[currentIndex].SetActive(false);
+    //     currentIndex++;
+    //     if (currentIndex == pages.Length) {
+    //         gameObject.SetActive(false);
+    //         currentIndex = -1;
+    //         pauseButton.GetComponent<PlayController>().toggle();
+    //     } else {
+    //         pages[currentIndex].SetActive(true);
+    //     }
+    // }
+
+    public void lastPage() {
+        pages[currentIndex].SetActive(false);
+        currentIndex--;
+        pages[currentIndex].SetActive(true);
+    }
+
+    public void nextPage() {
+        pages[currentIndex].SetActive(false);
+        currentIndex++;
+        var coroutine = nextPageWithInteractionHelper();
         StartCoroutine(coroutine);
     }
 
-    private IEnumerator changeContentHelper(int index) {
-        string name = "Hide Content " + (index + 1);
-        print(name);
-        // helpCanvas.transform.GetChild(0).GetChild(index).gameObject.GetComponent<Animator>().Play(name);
-        yield return new WaitForSeconds(1f);
-        // print(123);
-        helpCanvas.transform.GetChild(0).GetChild(index).gameObject.SetActive(false);
-        helpCanvas.transform.GetChild(0).GetChild(index + 1).gameObject.SetActive(true);
-        // yield return new WaitForSeconds(1f);
+    private IEnumerator nextPageWithInteractionHelper() {
+        pauseButton.GetComponent<PlayController>().resume();
+        // print(currentIndex);
+        int idx = currentIndex - 1;
+
+        // Change the interaction forms here
+        if (idx == 1) {
+            // yield return new WaitForSeconds(9.3f);
+        } else if (idx == 2) {
+            int seconds = 0;
+            while (seconds < 6) {
+                yield return new WaitForSeconds(1f);
+                if (dataPaneController.GetComponent<DataPaneController>().getCityIndex() == 0) {
+                    break;
+                } else {
+                    seconds++;
+                }
+            }
+            if (seconds == 6) {
+                currentIndex--;
+                // print(currentIndex);
+            }
+        } else if (idx == 4) {
+            int seconds = 0;
+            while (seconds < 6) {
+                yield return new WaitForSeconds(1f);
+                if (schoolClosingSlider.GetComponent<Slider>().value == 1.0f) {
+                    break;
+                } else {
+                    seconds++;
+                }
+            }
+            if (seconds == 6) {
+                currentIndex--;
+                // print(currentIndex);
+            }
+        } else if (idx == 6) {
+            int seconds = 0;
+            while (seconds < 6) {
+                yield return new WaitForSeconds(1f);
+                if (dataPaneController.GetComponent<DataPaneController>().getCityIndex() == -1) {
+                    break;
+                } else {
+                    seconds++;
+                }
+            }
+            if (seconds == 6) {
+                currentIndex--;
+                // print(currentIndex);
+            }
+        }
+
+
+
+        pauseButton.GetComponent<PlayController>().pause();
+        if (currentIndex == pages.Length) {
+            currentIndex = -1;
+            pauseButton.GetComponent<PlayController>().resume();
+        } else {
+            pages[currentIndex].SetActive(true);
+        }
     }
-
-
+    
 }

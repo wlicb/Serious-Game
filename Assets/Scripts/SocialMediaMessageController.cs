@@ -77,6 +77,23 @@ public class SocialMediaMessageController : MonoBehaviour
     // {
         
     // }
+    void generateComment(List<string> keyList, GameObject newMessage, IDictionary<string, int> comment)
+    {
+        System.Random rand = new System.Random();
+        string randomKey = keyList[rand.Next(keyList.Count)];
+        // print(randomKey);
+        if (comment[randomKey] == 0)
+        {
+            newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+        }
+        else
+        {
+            int city_index = dataManager.getMaxInfectionCity();
+            string city = nameMapping[city_index];
+            var s = string.Format(randomKey, city);
+            newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+        }
+    }
 
     private IEnumerator updateMessage(float waitTime)
     {
@@ -98,56 +115,59 @@ public class SocialMediaMessageController : MonoBehaviour
                 {
                     //show positive comment
                     List<string> keyList = new List<string>(positive_comment.Keys);
-                    System.Random rand = new System.Random();
-                    string randomKey = keyList[rand.Next(keyList.Count)];
-                    // print(randomKey);
-                    if(positive_comment[randomKey] == 0)
-                    {
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
-                    }
-                    else
-                    {
-                        int city_index = dataManager.getMaxInfectionCity();
-                        string city = nameMapping[city_index];
-                        var s = string.Format(randomKey, city);
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
-                    }
+                    generateComment(keyList, newMessage, positive_comment);
+                    // System.Random rand = new System.Random();
+                    // string randomKey = keyList[rand.Next(keyList.Count)];
+                    // // print(randomKey);
+                    // if(positive_comment[randomKey] == 0)
+                    // {
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    // }
+                    // else
+                    // {
+                    //     int city_index = dataManager.getMaxInfectionCity();
+                    //     string city = nameMapping[city_index];
+                    //     var s = string.Format(randomKey, city);
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    // }
                 }
                 else if (x > 90)
                 {
                     //show neutural comment
                     List<string> keyList = new List<string>(neutural_comment.Keys);
-                    System.Random rand = new System.Random();
-                    string randomKey = keyList[rand.Next(keyList.Count)];
-                    if (neutural_comment[randomKey] == 0)
-                    {
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
-                    }
-                    else
-                    {
-                        int city_index = dataManager.getMaxInfectionCity();
-                        string city = nameMapping[city_index];
-                        var s = string.Format(randomKey, city);
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
-                    }
+                    generateComment(keyList, newMessage, neutural_comment);
+                    // System.Random rand = new System.Random();
+                    // string randomKey = keyList[rand.Next(keyList.Count)];
+                    // if (neutural_comment[randomKey] == 0)
+                    // {
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    // }
+                    // else
+                    // {
+                    //     int city_index = dataManager.getMaxInfectionCity();
+                    //     string city = nameMapping[city_index];
+                    //     var s = string.Format(randomKey, city);
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    // }
                 }
                 else
                 {
                     //show negative comment
                     List<string> keyList = new List<string>(negative_comment.Keys);
-                    System.Random rand = new System.Random();
-                    string randomKey = keyList[rand.Next(keyList.Count)];
-                    if (negative_comment[randomKey] == 0)
-                    {
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
-                    } 
-                    else
-                    {
-                        int city_index = dataManager.getMaxInfectionCity();
-                        string city = nameMapping[city_index];
-                        var s = string.Format(randomKey, city);
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
-                    }
+                    generateComment(keyList, newMessage, negative_comment);
+                    // System.Random rand = new System.Random();
+                    // string randomKey = keyList[rand.Next(keyList.Count)];
+                    // if (negative_comment[randomKey] == 0)
+                    // {
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    // } 
+                    // else
+                    // {
+                    //     int city_index = dataManager.getMaxInfectionCity();
+                    //     string city = nameMapping[city_index];
+                    //     var s = string.Format(randomKey, city);
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    // }
                 }
                 var y = -(newMessage.transform.localScale.y) * numMessages - 0.2f * numMessages;
                 newMessage.transform.position = new Vector3(newMessage.transform.position.x, y, newMessage.transform.localScale.z);
@@ -195,56 +215,59 @@ public class SocialMediaMessageController : MonoBehaviour
                 {
                     //show positive comment
                     List<string> keyList = new List<string>(positive_comment.Keys);
-                    System.Random rand = new System.Random();
-                    string randomKey = keyList[rand.Next(keyList.Count)];
-                    // print(randomKey);
-                    if(positive_comment[randomKey] == 0)
-                    {
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
-                    }
-                    else
-                    {
-                        int city_index = dataManager.getMaxInfectionCity();
-                        string city = nameMapping[city_index];
-                        var s = string.Format(randomKey, city);
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
-                    }
+                    generateComment(keyList, newMessage, positive_comment);
+                    // System.Random rand = new System.Random();
+                    // string randomKey = keyList[rand.Next(keyList.Count)];
+                    // // print(randomKey);
+                    // if(positive_comment[randomKey] == 0)
+                    // {
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    // }
+                    // else
+                    // {
+                    //     int city_index = dataManager.getMaxInfectionCity();
+                    //     string city = nameMapping[city_index];
+                    //     var s = string.Format(randomKey, city);
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    // }
                 }
                 else if (x > 90)
                 {
                     //show neutural comment
                     List<string> keyList = new List<string>(neutural_comment.Keys);
-                    System.Random rand = new System.Random();
-                    string randomKey = keyList[rand.Next(keyList.Count)];
-                    if (neutural_comment[randomKey] == 0)
-                    {
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
-                    }
-                    else
-                    {
-                        int city_index = dataManager.getMaxInfectionCity();
-                        string city = nameMapping[city_index];
-                        var s = string.Format(randomKey, city);
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
-                    }
+                    generateComment(keyList, newMessage, neutural_comment);
+                    // System.Random rand = new System.Random();
+                    // string randomKey = keyList[rand.Next(keyList.Count)];
+                    // if (neutural_comment[randomKey] == 0)
+                    // {
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    // }
+                    // else
+                    // {
+                    //     int city_index = dataManager.getMaxInfectionCity();
+                    //     string city = nameMapping[city_index];
+                    //     var s = string.Format(randomKey, city);
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    // }
                 }
                 else
                 {
                     //show negative comment
                     List<string> keyList = new List<string>(negative_comment.Keys);
-                    System.Random rand = new System.Random();
-                    string randomKey = keyList[rand.Next(keyList.Count)];
-                    if (negative_comment[randomKey] == 0)
-                    {
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
-                    } 
-                    else
-                    {
-                        int city_index = dataManager.getMaxInfectionCity();
-                        string city = nameMapping[city_index];
-                        var s = string.Format(randomKey, city);
-                        newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
-                    }
+                    generateComment(keyList, newMessage, negative_comment);
+                    // System.Random rand = new System.Random();
+                    // string randomKey = keyList[rand.Next(keyList.Count)];
+                    // if (negative_comment[randomKey] == 0)
+                    // {
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
+                    // } 
+                    // else
+                    // {
+                    //     int city_index = dataManager.getMaxInfectionCity();
+                    //     string city = nameMapping[city_index];
+                    //     var s = string.Format(randomKey, city);
+                    //     newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
+                    // }
                 }
                 
 

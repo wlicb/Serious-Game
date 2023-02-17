@@ -103,4 +103,8 @@ public class DataPaneController : MonoBehaviour
     public void changeCity(int i) {
         CityIndex = i;
     }
+
+    public int getCityIndex() {
+        return CityIndex;
+    }
 }

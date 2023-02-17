@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading;
+using static GameRoundValue;
 
 public class GameStartController : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class GameStartController : MonoBehaviour
     }
 
     public void loadGame() {
+        GameRoundValue.roundCount++;
+        print(roundCount);
         var coroutine = loadGameHelper();
         StartCoroutine(coroutine);
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static GameRoundValue;
 
 public class GameEndController : MonoBehaviour
 {
@@ -72,6 +73,8 @@ public class GameEndController : MonoBehaviour
     }
 
     public void reload() {
+        GameRoundValue.roundCount++;
+        print(roundCount);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.UnloadScene(scene.buildIndex); 
         SceneManager.SetActiveScene(scene);

@@ -25,15 +25,23 @@ public class PlayController : MonoBehaviour
 
     public void toggle() {
         if (!paused) {
-            paused = true;
-            Time.timeScale = 0;
-            gameObject.GetComponent<Image>().sprite = playSprite;
+            pause();
         } else {
-            paused = false;
-            Time.timeScale = 1;
-            gameObject.GetComponent<Image>().sprite = pauseSprite;
+            resume();
         }
 
+    }
+
+    public void pause() {
+        paused = true;
+        Time.timeScale = 0;
+        gameObject.GetComponent<Image>().sprite = playSprite;
+    }
+
+    public void resume() {
+        paused = false;
+        Time.timeScale = 1;
+        gameObject.GetComponent<Image>().sprite = pauseSprite;
     }
 
 }
