@@ -25,6 +25,12 @@ public class DataManager : MonoBehaviour
     
     private SocialMediaMessageController socialMediaMessageController;
 
+    public GameObject infoBlockObj;
+
+    private InfoBlock infoBlock;
+
+    // define some parameters to be tuned
+
     private int satisfactionPopupValue = 5;
 
     private int deathPopupValue = 10;
@@ -41,6 +47,8 @@ public class DataManager : MonoBehaviour
 
     private int successDays = 60;
 
+    private int numDaysToCountFrequency = 10;
+
     private int[] infections;
 
     // private Dictionary<int, int[]> increaseHistory = new Dictionary<int, int[]>();
@@ -49,6 +57,8 @@ public class DataManager : MonoBehaviour
     private int[,] increaseHistory;
 
     private float[,] policyValue;
+
+    private float[ , , ] policyHistory;
 
     private int[,] deathHistory;
 
@@ -82,6 +92,8 @@ public class DataManager : MonoBehaviour
 
         socialMediaMessageController = socialMediaMessageControllerObject.GetComponent<SocialMediaMessageController>();
 
+        infoBlock = infoBlockObj.GetComponent<InfoBlock>();
+
         startDate = new DateTime(2022, 3, 1);
         date = new DateTime(2022, 3, 1);
         startingDate = new DateTime(2022, 3, 1);
@@ -93,6 +105,7 @@ public class DataManager : MonoBehaviour
         increaseHistory = new int[numCities, traceDays];
         deathHistory = new int[numCities, traceDays];
         policyValue = new float[numCities, policyCount];
+        policyHistory = new float[numCities, policyCount, numDaysToCountFrequency];
         for (var i = 0; i < numCities; i++) {
             infections[i] = 0;
             deaths[i] = 0;
@@ -105,6 +118,9 @@ public class DataManager : MonoBehaviour
             }
             for (var k = 0; k < policyCount; k++) {
                 policyValue[i,k] = 0;
+                for (var m = 0; m < numDaysToCountFrequency; m++) {
+                    policyHistory[i,k,m] = 0;
+                }
             }
         }
         // dayPassed = 0;
@@ -123,18 +139,42 @@ public class DataManager : MonoBehaviour
             // dayPassed++;
             // update data: for now use random data, will use model to predict data in the future
             for (var i = 0; i < numCities; i++) {
+
+                // These two arrays are for casting purposes
                 var policies = new int[policyCount];
+                var pastPolicies = new int[policyCount, numDaysToCountFrequency];
                 for (var m = 0; m < policyCount; m++) {
                     policies[m] = (int)policyValue[i, m];
                 }
 
-                lastIncrease[i] = model.calculateNewDailyInfection(i, lastIncrease[i], policies);
+                for (var k = 0; k < policyCount; k++) {
+                    for (var n = 0; n < numDaysToCountFrequency; n++) {
+                        if (n != numDaysToCountFrequency - 1) {
+                            policyHistory[i, k, n] = policyHistory[i, k, n+1];
+                        } else {
+                            policyHistory[i, k, n] = policyValue[i, k];
+                        }
+                        pastPolicies[k, n] = (int)policyHistory[i, k, n];
+                    }
+                }
+
+                int frequency = model.policyChangingFrequency(pastPolicies);
+                
+                // print(frequency);
+
+                double stringency = model.stringencyIndex(policies);
+                // lastIncrease[i] = 0;
+                int p = 0;
+                if (i == 4)
+                    p = 1;
+                lastIncrease[i] = model.calculateNewDailyInfection(stringency, lastIncrease[i], infoBlock.GetDensity(i), infoBlock.GetPopulation(i), p);
                 infections[i] += lastIncrease[i];
 
-                deathIncrease[i] = model.calculateNewDailyDeath(i, lastIncrease[i]);
-                deaths[i] += deathIncrease[i];
+                // print(lastIncrease[i]);
 
-                satisfactions[i] = model.calculateNewSatisfaction(i, lastIncrease[i], deathIncrease[i], policies, satisfactions[i]);
+                deathIncrease[i] = model.calculateNewDailyDeath(lastIncrease[i], deathIncrease[i]);
+                deaths[i] += deathIncrease[i];
+                satisfactions[i] = model.calculateNewSatisfaction(stringency, lastIncrease[i], infoBlock.GetGDP(i), deathIncrease[i], frequency, satisfactions[i]);
 
                 for (var j = 0; j < traceDays; j++) {
                     if (j == (traceDays - 1)) {

@@ -10,6 +10,8 @@ public class InfoBlock : MonoBehaviour
     private Dictionary<int, double> GDP = new Dictionary<int, double>();
     private Dictionary<int, string> briefDescription = new Dictionary<int, string>();
 
+    private Dictionary<int, int> population = new Dictionary<int, int>();
+
     public GameObject name;
 
     public GameObject description;
@@ -28,6 +30,7 @@ public class InfoBlock : MonoBehaviour
         addPopulationDensity();
         addGDP();
         addDescription();
+        addPopulation();
     }
 
     // Update is called once per frame
@@ -202,4 +205,54 @@ public class InfoBlock : MonoBehaviour
         briefDescription.Add(31, "Nanning is the capital and largest city by population of the Guangxi Zhuang Autonomous Region in Southern China.");
         briefDescription.Add(32, "Haikou is the capital and most populous city of the Chinese province of Hainan.");
     }
+
+    private void addPopulation() 
+    { 
+        population.Add(0, 24183300); 
+        population.Add(1, 21707000); 
+        population.Add(2, 15660000); 
+        population.Add(3, 14043500); 
+        population.Add(4, 13027100); 
+        population.Add(5, 10476000); 
+        population.Add(6, 9415100); 
+        population.Add(7, 8693800); 
+        population.Add(8, 5112300); 
+        population.Add(9, 8109000); 
+        population.Add(10, 4373300); 
+        population.Add(11, 5065300); 
+        population.Add(12, 3093300); 
+        population.Add(13, 3325200); 
+        population.Add(14, 426200); 
+        population.Add(15, 2697300); 
+        population.Add(16, 3365000); 
+        population.Add(17, 2342000); 
+        population.Add(18, 9094400); 
+        population.Add(19, 4417400); 
+        population.Add(20, 9882600); 
+        population.Add(21, 9816000); 
+        population.Add(22, 9865300); 
+        population.Add(23, 8490000); 
+        population.Add(24, 5956200); 
+        population.Add(25, 10199000);
+        population.Add(26, 4143700); 
+        population.Add(27, 7699000); 
+        population.Add(28, 4281100); 
+        population.Add(29, 6778200); 
+        population.Add(30, 11258000); 
+        population.Add(31, 7490100); 
+        population.Add(32, 2459000); 
+    }
+
+    public double GetGDP(int idx) {
+        return GDP[idx];
+    }
+
+    public int GetPopulation(int idx) {
+        return population[idx];
+    }
+
+    public double GetDensity(int idx) {
+        return populationDensity[idx];
+    }
+
 }

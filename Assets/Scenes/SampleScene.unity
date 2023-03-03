@@ -5245,6 +5245,7 @@ MonoBehaviour:
   popupObject: {fileID: 1586429537}
   gameEndControllerObject: {fileID: 1333059119}
   socialMediaMessageControllerObject: {fileID: 1846415954}
+  infoBlockObj: {fileID: 139548249}
 --- !u!4 &371366391
 Transform:
   m_ObjectHideFlags: 0
@@ -26162,7 +26163,6 @@ MonoBehaviour:
   pauseButton: {fileID: 2027242247}
   dataPaneController: {fileID: 879799415}
   schoolClosingSlider: {fileID: 1073175146}
-  chinaMap: {fileID: 1116277768}
 --- !u!1 &1772225007
 GameObject:
   m_ObjectHideFlags: 0
