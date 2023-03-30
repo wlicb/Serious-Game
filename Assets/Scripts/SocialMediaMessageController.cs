@@ -40,13 +40,13 @@ public class SocialMediaMessageController : MonoBehaviour
         {"我对{0}的未来充满信心！疫情必定能早日消失", 1},
         {"感谢{0}政府对疫情防控的刻苦付出!", 1},
         {"为了让{0}安全，我们要配合政府的措施", 1},
-        {"因为大家的努力，{0}疫情已经得到了控制", 0},
+        {"因为大家的努力，{0}疫情已经得到了控制", 1},
         {"感谢{0}政府的无私奉献，努力控制疫情", 1},
         {"大家一起努力，{0}就一定能迎刃而解", 1},
         {"在这段时间里，大家都为{0}的安全做了努力", 1},
         {"让我们把所有的力量都用在抗击疫情上，给{0}带来更多的希望", 1},
         {"看到疫情的积极变化，大家要继续保持信心", 0},
-        {"通过我们的共同努力，{0}的疫情终将得以控制", 0},
+        {"通过我们的共同努力，{0}的疫情终将得以控制", 1},
         {"我们是{0}最坚强的人民，疫情不会打倒我们", 1},
         {"把信心寄托在政府身上是对我们责任的体现，也是对{0}未来的期望", 1},
         {"只要大家团结一致我们肯定能度过难关的", 0}
@@ -124,15 +124,18 @@ public class SocialMediaMessageController : MonoBehaviour
     {
         System.Random rand = new System.Random();
         string randomKey = keyList[rand.Next(keyList.Count)];
-        print(comment[randomKey]);
+        // print(comment[randomKey]);
         if (comment[randomKey] == 0)
         {
             newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = randomKey;
         }
         else
         {
-            int city_index = dataManager.getMaxInfectionCity();
+            System.Random rand1 = new System.Random();
+            int rank = rand1.Next(5);
+            int city_index = dataManager.getMaxInfectionCity(rank);
             string city = nameMapping[city_index];
+            // print(city_index);
             var s = string.Format(randomKey, city);
             newMessage.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = s;
         }

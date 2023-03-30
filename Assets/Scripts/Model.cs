@@ -53,12 +53,14 @@ public class Model : MonoBehaviour
 
     public int calculateNewSatisfaction(double stringency_index, int lastIncrease, double GDP, int lastDeath, int policy_changing_frequency, int lastSatisfaction) {
         int dailyChange = 0;
-
+        // print("Stringency index = " + stringency_index);
         // Calculate daily change based on stringency index
         if (stringency_index > 40) {
             dailyChange -= (int)Math.Pow((stringency_index - 40), 0.6); // Non-linear increase
+            // print("A");
         } else {
             dailyChange += (int)Math.Pow((40 - stringency_index), 0.6); // Non-linear decrease
+            // print("B");
         }
 
         // Calculate daily change based on last increase and death
@@ -75,12 +77,13 @@ public class Model : MonoBehaviour
             dailyChange -= (int)(Math.Log(lastDeath, 5)); // Non-linear decrease with log
         }
         // Calculate daily change based on GDP
-        if (GDP > 1000) {
-            dailyChange += (int)(GDP / 1000.0); // Non-linear increase
-        }
+        // if (GDP > 1000) {
+        //     dailyChange += (int)(GDP / 1000.0); // Non-linear increase
+        // }
 
         // Cap daily change between -10 and 10
         dailyChange = Math.Max(Math.Min(dailyChange, 10), -10);
+        // print("daily Change = " + dailyChange);
 
         // Calculate new satisfaction level
         int newSatisfaction = lastSatisfaction + dailyChange - policy_changing_frequency;
