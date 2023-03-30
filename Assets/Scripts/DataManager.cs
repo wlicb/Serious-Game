@@ -4,13 +4,10 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Threading;
-using System.Linq;
 // using static PopupController;
 
 public class DataManager : MonoBehaviour
 {
-
-    private float waitTime;
 
     public GameObject modelObj;
 
@@ -34,9 +31,9 @@ public class DataManager : MonoBehaviour
 
     // define some parameters to be tuned
 
-    private int satisfactionPopupValue = 50;
+    private int satisfactionPopupValue = 5;
 
-    private int deathPopupValue = 5;
+    private int deathPopupValue = 10;
 
     private int numCities = 33;
 
@@ -44,9 +41,9 @@ public class DataManager : MonoBehaviour
 
     private int policyCount = 7;
 
-    private int satisfactionThreshold = 30;
+    private int satisfactionThreshold = 0;
 
-    private int deathThreshold = 100;
+    private int deathThreshold = 1000;
 
     private int successDays = 60;
 
@@ -129,19 +126,15 @@ public class DataManager : MonoBehaviour
         // dayPassed = 0;
         // increaseHistory[dayPassed] = lastIncrease;
 
-        // coroutine = updateData(8.0f);
-        waitTime = 16.0f;
-        coroutine = updateData();
+        coroutine = updateData(8.0f);
         StartCoroutine(coroutine);
     }
 
-    // private IEnumerator updateData(float waitTime)
-    private IEnumerator updateData()
+    private IEnumerator updateData(float waitTime)
     {
         // The main game loop
         while (true)
         {
-            print(waitTime);
             yield return new WaitForSeconds(waitTime);
             // dayPassed++;
             // update data: for now use random data, will use model to predict data in the future
@@ -244,9 +237,6 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void changeWaitTime(float value) {
-        waitTime = value;
-    }
 
     public void updatePolicyIndex(int cityIndex, int policyIndex, float value) {
         if (cityIndex == -1) {
@@ -284,22 +274,18 @@ public class DataManager : MonoBehaviour
         return satisfactions[i];
     }
 
-    public int getMaxInfectionCity(int rank) {
-        // int city_index = 0;
-        // int max = infections[0];
-        // for (var i = 1; i < numCities; i++)
-        // {
-        //     if (infections[i] > max)
-        //     {
-        //         city_index = i;
-        //         max = infections[i];
-        //     }
-        // }
-        // return city_index;
-        List<int> infectionList = new List<int>(infections);
-        var numbers = infectionList.OrderByDescending(x => x).Skip(rank - 1).Take(1); 
-        var index = infectionList.FindIndex(x => x == numbers.First()); 
-        return index;
+    public int getMaxInfectionCity() {
+        int city_index = 0;
+        int max = infections[0];
+        for (var i = 1; i < numCities; i++)
+        {
+            if (infections[i] > max)
+            {
+                city_index = i;
+                max = infections[i];
+            }
+        }
+        return city_index;
     }
 
     public int getTotalInfection() {

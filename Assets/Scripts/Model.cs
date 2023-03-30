@@ -53,37 +53,30 @@ public class Model : MonoBehaviour
 
     public int calculateNewSatisfaction(double stringency_index, int lastIncrease, double GDP, int lastDeath, int policy_changing_frequency, int lastSatisfaction) {
         int dailyChange = 0;
-        // print("Stringency index = " + stringency_index);
+
         // Calculate daily change based on stringency index
         if (stringency_index > 40) {
             dailyChange -= (int)Math.Pow((stringency_index - 40), 0.6); // Non-linear increase
-            // print("A");
         } else {
             dailyChange += (int)Math.Pow((40 - stringency_index), 0.6); // Non-linear decrease
-            // print("B");
         }
 
         // Calculate daily change based on last increase and death
-        if (lastIncrease > 0){
-            if (lastIncrease > 500) {
-                dailyChange -= (int)(Math.Log(lastIncrease, 10)); // Non-linear decrease with log
-                // print("C");
-            }else{
-                dailyChange += (int)(Math.Log(lastIncrease, 8));
-                // print("D");
-            }
+        if (lastIncrease > 500) {
+            dailyChange -= (int)(Math.Log(lastIncrease, 10)); // Non-linear decrease with log
+        }else{
+            dailyChange += (int)(Math.Log(lastIncrease, 8));
         }
         if (lastDeath > 20) {
             dailyChange -= (int)(Math.Log(lastDeath, 5)); // Non-linear decrease with log
         }
         // Calculate daily change based on GDP
-        // if (GDP > 1000) {
-        //     dailyChange += (int)(GDP / 1000.0); // Non-linear increase
-        // }
+        if (GDP > 1000) {
+            dailyChange += (int)(GDP / 1000.0); // Non-linear increase
+        }
 
         // Cap daily change between -10 and 10
         dailyChange = Math.Max(Math.Min(dailyChange, 10), -10);
-        // print("daily Change = " + dailyChange);
 
         // Calculate new satisfaction level
         int newSatisfaction = lastSatisfaction + dailyChange - policy_changing_frequency;
@@ -128,18 +121,17 @@ public class Model : MonoBehaviour
         }
 
         // Calculate the predicted death cases for the new day
-        int predictedDeath = (int)Math.Round(lastIncrease * deathMultiplier * increaseMultiplier * baseDeathRate)/1000;
-        predictedDeath = predictedDeath + new System.Random().Next(0, 1);
+        int predictedDeath = (int)Math.Round(lastDeath * deathMultiplier * increaseMultiplier * baseDeathRate);
 
         return predictedDeath;
     }
 
     public int calculateNewDailyInfection(double stringency_index, int lastIncrease, double populationDensity, int population, int p)
     {
-        population /= 3000;
+        population /= 1500;
         double baseInfectionRate = 0.05; // set the base infection rate to 5%
         double stringencyFactor = 1 - stringency_index / 200.0; // calculate the factor based on stringency index
-        double densityFactor = Math.Pow(populationDensity / 9000.0, 0.5); // calculate the factor based on population density
+        double densityFactor = Math.Pow(1 - populationDensity / 9000.0, 2); // calculate the factor based on population density
         double lastIncreaseFactor = 1 + Math.Log10(lastIncrease + 1); // calculate the factor based on the last increase
 
         double randomFactor = 0.9 + 0.2 * new System.Random().NextDouble(); // generate a random factor between 0.9 and 1.1
@@ -159,9 +151,8 @@ public class Model : MonoBehaviour
 
     public double stringencyIndex(int[] policies)
     {
-        double index = policies[0] / 3 + policies[1] / 3 + policies[2] / 2 + policies[3] / 4 + policies[4] / 2 + policies[5] / 3 + policies[6] / 2;
+        double index = policies[0] / 3 + policies[0] / 3 + policies[0] / 2 + policies[0] / 4 + policies[0] / 2 + policies[0] / 3 + policies[0] / 2;
         index /= 7;
-        index *= 100;
         return index;
     }
 
