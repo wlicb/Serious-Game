@@ -27,7 +27,7 @@ public class News : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cityIndex = dataManager.getMaxInfectionCity();
+        cityIndex = dataManager.getMaxInfectionCity(1);
         cityName = nameMapping[cityIndex];
         value = dataManager.getIncrease(cityIndex);
         gameObject.GetComponent<Text>().text = cityName + " reported " + value.ToString() + " daily cases of COVID-19 yesterday.";
