@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoverageReport scope="Summary">
+  <Summary>
+    <Generatedon>2023/4/14 - 21:54:27</Generatedon>
+    <Parser>MultiReportParser (15x OpenCoverParser)</Parser>
+    <Assemblies>2</Assemblies>
+    <Classes>54</Classes>
+    <Files>53</Files>
+    <Coveredlines>1485</Coveredlines>
+    <Uncoveredlines>775</Uncoveredlines>
+    <Coverablelines>2260</Coverablelines>
+    <Totallines>4081</Totallines>
+    <Linecoverage>65.7</Linecoverage>
+    <Coveredbranches>0</Coveredbranches>
+    <Totalbranches>0</Totalbranches>
+    <Coveredmethods>176</Coveredmethods>
+    <Totalmethods>287</Totalmethods>
+    <Methodcoverage>61.3</Methodcoverage>
+  </Summary>
+  <Coverage>
+    <Assembly name="EditModeTests" classes="3" coverage="100" coveredlines="203" coverablelines="203" totallines="422" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="17" totalmethods="17" methodcoverage="100">
+      <Class name="TestDataManager" coverage="100" coveredlines="89" coverablelines="89" totallines="157" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
+      <Class name="TestInfoBlock" coverage="100" coveredlines="24" coverablelines="24" totallines="67" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
+      <Class name="TestModel" coverage="100" coveredlines="90" coverablelines="90" totallines="198" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
+    </Assembly>
+    <Assembly name="Scripts" classes="51" coverage="62.3" coveredlines="1282" coverablelines="2057" totallines="3717" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="159" totalmethods="270" methodcoverage="58.8">
+      <Class name="ChangeSceneController" coverage="0" coveredlines="0" coverablelines="14" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="CircleSlider" coverage="0" coveredlines="0" coverablelines="18" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="CircleSliderA" coverage="0" coveredlines="0" coverablelines="22" totallines="41" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="City" coverage="100" coveredlines="11" coverablelines="11" totallines="46" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
+      <Class name="CitySelectController" coverage="88.4" coveredlines="46" coverablelines="52" totallines="72" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
+      <Class name="DataManager" coverage="93.1" coveredlines="326" coverablelines="350" totallines="461" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="58" totalmethods="59" methodcoverage="98.3" />
+      <Class name="DataPaneController" coverage="76.9" coveredlines="50" coverablelines="65" totallines="111" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="10" methodcoverage="80" />
+      <Class name="DateContent" coverage="100" coveredlines="3" coverablelines="3" totallines="12" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
+      <Class name="FourCirclePercent" coverage="0" coveredlines="0" coverablelines="23" totallines="58" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="FourPercent" coverage="0" coveredlines="0" coverablelines="20" totallines="44" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="GameEndController" coverage="82.4" coveredlines="75" coverablelines="91" totallines="123" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="11" totalmethods="11" methodcoverage="100" />
+      <Class name="GameStartController" coverage="0" coveredlines="0" coverablelines="35" totallines="68" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="8" methodcoverage="0" />
+      <Class name="GetTime" coverage="0" coveredlines="0" coverablelines="5" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="HillPercent" coverage="0" coveredlines="0" coverablelines="9" totallines="28" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="ImageBoard" coverage="0" coveredlines="0" coverablelines="8" totallines="26" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="InfoBlock" coverage="93.1" coveredlines="205" coverablelines="220" totallines="261" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="12" totalmethods="15" methodcoverage="80" />
+      <Class name="JustRotate" coverage="0" coveredlines="0" coverablelines="6" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="KeekOrit" coverage="0" coveredlines="0" coverablelines="5" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="KeepSize" coverage="0" coveredlines="0" coverablelines="3" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="LineChart" coverage="64.1" coveredlines="34" coverablelines="53" totallines="84" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="6" methodcoverage="83.3" />
+      <Class name="LineChartController" coverage="96.9" coveredlines="63" coverablelines="65" totallines="95" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
+      <Class name="Model" coverage="92.6" coveredlines="88" coverablelines="95" totallines="153" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="6" methodcoverage="83.3" />
+      <Class name="MyUIShape" coverage="0" coveredlines="0" coverablelines="82" totallines="144" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="6" methodcoverage="0" />
+      <Class name="News" coverage="100" coveredlines="47" coverablelines="47" totallines="73" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
+      <Class name="OilGauge" coverage="0" coveredlines="0" coverablelines="19" totallines="45" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="OilGauge1" coverage="0" coveredlines="0" coverablelines="19" totallines="45" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Pace" coverage="66.6" coveredlines="14" coverablelines="21" totallines="42" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="4" methodcoverage="75" />
+      <Class name="PlayController" coverage="68.1" coveredlines="15" coverablelines="22" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="5" methodcoverage="80" />
+      <Class name="policyController" coverage="79.4" coveredlines="31" coverablelines="39" totallines="57" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="9" totalmethods="10" methodcoverage="90" />
+      <Class name="policySelection" coverage="100" coveredlines="6" coverablelines="6" totallines="24" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
+      <Class name="PopupController" coverage="56.4" coveredlines="22" coverablelines="39" totallines="74" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
+      <Class name="PressedBtn" coverage="0" coveredlines="0" coverablelines="24" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
+      <Class name="RandomEnableAnimator" coverage="0" coveredlines="0" coverablelines="13" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="RandomNumber" coverage="100" coveredlines="13" coverablelines="13" totallines="38" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
+      <Class name="RandomNumberPro" coverage="0" coveredlines="0" coverablelines="14" totallines="33" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="RunningNumber" coverage="0" coveredlines="0" coverablelines="22" totallines="45" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="SimpleProgress" coverage="0" coveredlines="0" coverablelines="17" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="SimpleProgress1" coverage="0" coveredlines="0" coverablelines="16" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="SliderRunTo1" coverage="0" coveredlines="0" coverablelines="18" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="SliderRunTo1A" coverage="0" coveredlines="0" coverablelines="17" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="SliderValuePass" coverage="0" coveredlines="0" coverablelines="6" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="SocialMediaMessageController" coverage="97.7" coveredlines="177" coverablelines="181" totallines="413" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100" />
+      <Class name="Spider" coverage="0" coveredlines="0" coverablelines="95" totallines="175" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="9" methodcoverage="0" />
+      <Class name="TextChangeMyColor" coverage="0" coveredlines="0" coverablelines="9" totallines="23" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="TextColorControl" coverage="0" coveredlines="0" coverablelines="9" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="ThreePercent" coverage="0" coveredlines="0" coverablelines="19" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="TutorialController" coverage="54.4" coveredlines="43" coverablelines="79" totallines="133" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="7" methodcoverage="85.7" />
+      <Class name="UIPolygon" coverage="0" coveredlines="0" coverablelines="23" totallines="58" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="UIPolygonInspector" coverage="0" coveredlines="0" coverablelines="2" totallines="58" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="UpdateInfection" coverage="100" coveredlines="5" coverablelines="5" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
+      <Class name="Wavecircle" coverage="100" coveredlines="8" coverablelines="8" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
+    </Assembly>
+  </Coverage>
+</CoverageReport>

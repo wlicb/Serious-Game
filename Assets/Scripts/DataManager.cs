@@ -35,8 +35,10 @@ public class DataManager : MonoBehaviour
     // define some parameters to be tuned
 
     private int satisfactionPopupValue = 50;
+    // 100 is only for testing purpose, should be 50
 
     private int deathPopupValue = 5;
+    // 0 is only for testing purpose, should be 5
 
     private int numCities = 33;
 
@@ -45,10 +47,13 @@ public class DataManager : MonoBehaviour
     private int policyCount = 7;
 
     private int satisfactionThreshold = 30;
+    // 99 is only for testing purpose, should be 30
 
-    private int deathThreshold = 100;
+    private int deathThreshold = 1;
+    // 1 is only for testing purpose, should be 100
 
     private int successDays = 60;
+    // 1 is only for testing purpose, should be 60
 
     private int numDaysToCountFrequency = 10;
 
@@ -82,21 +87,7 @@ public class DataManager : MonoBehaviour
 
     private DateTime startDate;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Thread.Sleep(2000);
-        model = modelObj.GetComponent<Model>();
-
-        popupController = popupObject.GetComponent<PopupController>();
-
-        gameEndController = gameEndControllerObject.GetComponent<GameEndController>();
-
-        socialMediaMessageController = socialMediaMessageControllerObject.GetComponent<SocialMediaMessageController>();
-
-        infoBlock = infoBlockObj.GetComponent<InfoBlock>();
-
+    private void init() {
         startDate = new DateTime(2022, 3, 1);
         date = new DateTime(2022, 3, 1);
         startingDate = new DateTime(2022, 3, 1);
@@ -131,6 +122,28 @@ public class DataManager : MonoBehaviour
 
         // coroutine = updateData(8.0f);
         waitTime = 16.0f;
+    }
+
+    public DataManager() {
+        init();
+    }
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Thread.Sleep(2000);
+        model = modelObj.GetComponent<Model>();
+
+        popupController = popupObject.GetComponent<PopupController>();
+
+        gameEndController = gameEndControllerObject.GetComponent<GameEndController>();
+
+        socialMediaMessageController = socialMediaMessageControllerObject.GetComponent<SocialMediaMessageController>();
+
+        infoBlock = infoBlockObj.GetComponent<InfoBlock>();
+
+        init();
         coroutine = updateData();
         StartCoroutine(coroutine);
     }
@@ -179,10 +192,9 @@ public class DataManager : MonoBehaviour
 
                 // print(lastIncrease[i]);
 
-                deathIncrease[i] = model.calculateNewDailyDeath(lastIncrease[i], deathIncrease[i]);
+                deathIncrease[i] = model.calculateNewDailyDeath(lastIncrease[i], deathIncrease[i], infections[i]);
                 deaths[i] += deathIncrease[i];
                 satisfactions[i] = model.calculateNewSatisfaction(stringency, lastIncrease[i], infoBlock.GetGDP(i), deathIncrease[i], frequency, satisfactions[i]);
-
                 for (var j = 0; j < traceDays; j++) {
                     if (j == (traceDays - 1)) {
                         increaseHistory[i,j] = lastIncrease[i];
@@ -359,6 +371,7 @@ public class DataManager : MonoBehaviour
         int[] result = new int[traceDays];
         for (int j = 0; j < traceDays; j++) {
             result[j] = deathHistory[cityIndex, j];
+            // print(result[j]);
         }
         return result;
     }
@@ -394,5 +407,55 @@ public class DataManager : MonoBehaviour
         result /= numCities;
         return result;
     }
+
+    public float getWaitTime() {
+        return waitTime;
+    }
+
+    // These three functions are only for testing purposes. Should not be called anywhere in the game.
+
+    public void updateDeath(int[] death) {
+        var tmp = deaths;
+        deaths = death;
+        for (var i = 0; i < numCities; i++) {
+            deathIncrease[i] = death[i] - tmp[i];
+            for (var j = 0; j < traceDays; j++) {
+                if (j == (traceDays - 1)) {
+                    // increaseHistory[i,j] = lastIncrease[i];
+                    deathHistory[i,j] = deaths[i];
+                } else {
+                    // increaseHistory[i,j] = increaseHistory[i,j+1];
+                    deathHistory[i,j] = deathHistory[i,j+1];
+                }
+
+            }
+        }
+    }
+
+    public void updateInfection(int[] infection) {
+        var tmp = infections;
+        infections = infection;
+        for (var i = 0; i < numCities; i++) {
+            lastIncrease[i] = infection[i] - tmp[i];
+            for (var j = 0; j < traceDays; j++) {
+                if (j == (traceDays - 1)) {
+                    increaseHistory[i,j] = lastIncrease[i];
+                    // deathHistory[i,j] = deaths[i];
+                } else {
+                    increaseHistory[i,j] = increaseHistory[i,j+1];
+                    // deathHistory[i,j] = deathHistory[i,j+1];
+                }
+                // print(increaseHistory[i, j] + "   " + i + "   " +  j);
+
+            }
+            
+        }
+
+    }
+
+    public void updateSatisfaction(int[] satisfaction) {
+        satisfactions = satisfaction;
+    }
+
 
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2023-04-03_22-33-15" tag="">
+  <assembly name="EditModeTests">
+    <class name="TestDataManager" coveredlines="21" coverablelines="58" totallines="118" coveredbranches="0" totalbranches="0" />
+    <class name="TestModel" coveredlines="76" coverablelines="90" totallines="198" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="Scripts">
+    <class name="ChangeSceneController" coveredlines="0" coverablelines="14" totallines="37" coveredbranches="0" totalbranches="0" />
+    <class name="CircleSlider" coveredlines="0" coverablelines="18" totallines="37" coveredbranches="0" totalbranches="0" />
+    <class name="CircleSliderA" coveredlines="0" coverablelines="22" totallines="41" coveredbranches="0" totalbranches="0" />
+    <class name="City" coveredlines="0" coverablelines="11" totallines="46" coveredbranches="0" totalbranches="0" />
+    <class name="CitySelectController" coveredlines="1" coverablelines="43" totallines="62" coveredbranches="0" totalbranches="0" />
+    <class name="DataManager" coveredlines="26" coverablelines="254" totallines="422" coveredbranches="0" totalbranches="0" />
+    <class name="DataPaneController" coveredlines="1" coverablelines="47" totallines="110" coveredbranches="0" totalbranches="0" />
+    <class name="DateContent" coveredlines="0" coverablelines="3" totallines="12" coveredbranches="0" totalbranches="0" />
+    <class name="FourCirclePercent" coveredlines="0" coverablelines="23" totallines="58" coveredbranches="0" totalbranches="0" />
+    <class name="FourPercent" coveredlines="0" coverablelines="20" totallines="44" coveredbranches="0" totalbranches="0" />
+    <class name="GameEndController" coveredlines="3" coverablelines="76" totallines="129" coveredbranches="0" totalbranches="0" />
+    <class name="GameStartController" coveredlines="0" coverablelines="35" totallines="68" coveredbranches="0" totalbranches="0" />
+    <class name="GetTime" coveredlines="0" coverablelines="5" totallines="20" coveredbranches="0" totalbranches="0" />
+    <class name="HillPercent" coveredlines="0" coverablelines="9" totallines="28" coveredbranches="0" totalbranches="0" />
+    <class name="ImageBoard" coveredlines="0" coverablelines="8" totallines="26" coveredbranches="0" totalbranches="0" />
+    <class name="InfoBlock" coveredlines="5" coverablelines="216" totallines="258" coveredbranches="0" totalbranches="0" />
+    <class name="JustRotate" coveredlines="0" coverablelines="6" totallines="15" coveredbranches="0" totalbranches="0" />
+    <class name="KeekOrit" coveredlines="0" coverablelines="5" totallines="18" coveredbranches="0" totalbranches="0" />
+    <class name="KeepSize" coveredlines="0" coverablelines="3" totallines="14" coveredbranches="0" totalbranches="0" />
+    <class name="LineChart" coveredlines="1" coverablelines="53" totallines="84" coveredbranches="0" totalbranches="0" />
+    <class name="LineChartController" coveredlines="0" coverablelines="65" totallines="95" coveredbranches="0" totalbranches="0" />
+    <class name="Model" coveredlines="78" coverablelines="95" totallines="153" coveredbranches="0" totalbranches="0" />
+    <class name="MyUIShape" coveredlines="0" coverablelines="82" totallines="144" coveredbranches="0" totalbranches="0" />
+    <class name="News" coveredlines="1" coverablelines="47" totallines="73" coveredbranches="0" totalbranches="0" />
+    <class name="OilGauge" coveredlines="0" coverablelines="19" totallines="45" coveredbranches="0" totalbranches="0" />
+    <class name="OilGauge1" coveredlines="0" coverablelines="19" totallines="45" coveredbranches="0" totalbranches="0" />
+    <class name="Pace" coveredlines="0" coverablelines="21" totallines="42" coveredbranches="0" totalbranches="0" />
+    <class name="PlayController" coveredlines="0" coverablelines="22" totallines="47" coveredbranches="0" totalbranches="0" />
+    <class name="policyController" coveredlines="0" coverablelines="28" totallines="53" coveredbranches="0" totalbranches="0" />
+    <class name="policySelection" coveredlines="0" coverablelines="8" totallines="29" coveredbranches="0" totalbranches="0" />
+    <class name="PopupController" coveredlines="1" coverablelines="39" totallines="74" coveredbranches="0" totalbranches="0" />
+    <class name="PressedBtn" coveredlines="0" coverablelines="24" totallines="53" coveredbranches="0" totalbranches="0" />
+    <class name="RandomEnableAnimator" coveredlines="0" coverablelines="13" totallines="27" coveredbranches="0" totalbranches="0" />
+    <class name="RandomNumber" coveredlines="0" coverablelines="13" totallines="38" coveredbranches="0" totalbranches="0" />
+    <class name="RandomNumberPro" coveredlines="0" coverablelines="14" totallines="33" coveredbranches="0" totalbranches="0" />
+    <class name="RunningNumber" coveredlines="0" coverablelines="22" totallines="45" coveredbranches="0" totalbranches="0" />
+    <class name="SimpleProgress" coveredlines="0" coverablelines="17" totallines="37" coveredbranches="0" totalbranches="0" />
+    <class name="SimpleProgress1" coveredlines="0" coverablelines="16" totallines="37" coveredbranches="0" totalbranches="0" />
+    <class name="SliderRunTo1" coveredlines="0" coverablelines="18" totallines="36" coveredbranches="0" totalbranches="0" />
+    <class name="SliderRunTo1A" coveredlines="0" coverablelines="17" totallines="36" coveredbranches="0" totalbranches="0" />
+    <class name="SliderValuePass" coveredlines="0" coverablelines="6" totallines="21" coveredbranches="0" totalbranches="0" />
+    <class name="SocialMediaMessageController" coveredlines="4" coverablelines="181" totallines="413" coveredbranches="0" totalbranches="0" />
+    <class name="Spider" coveredlines="0" coverablelines="95" totallines="175" coveredbranches="0" totalbranches="0" />
+    <class name="TextChangeMyColor" coveredlines="0" coverablelines="9" totallines="23" coveredbranches="0" totalbranches="0" />
+    <class name="TextColorControl" coveredlines="0" coverablelines="9" totallines="27" coveredbranches="0" totalbranches="0" />
+    <class name="ThreePercent" coveredlines="0" coverablelines="19" totallines="43" coveredbranches="0" totalbranches="0" />
+    <class name="TutorialController" coveredlines="1" coverablelines="79" totallines="133" coveredbranches="0" totalbranches="0" />
+    <class name="UIPolygon" coveredlines="0" coverablelines="23" totallines="58" coveredbranches="0" totalbranches="0" />
+    <class name="UIPolygonInspector" coveredlines="0" coverablelines="2" totallines="58" coveredbranches="0" totalbranches="0" />
+    <class name="UpdateInfection" coveredlines="0" coverablelines="5" totallines="15" coveredbranches="0" totalbranches="0" />
+    <class name="Wavecircle" coveredlines="0" coverablelines="8" totallines="34" coveredbranches="0" totalbranches="0" />
+  </assembly>
+</coverage>

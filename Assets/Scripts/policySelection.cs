@@ -17,11 +17,6 @@ public class policySelection : MonoBehaviour
         pc = policyControllerObject.GetComponent<policyController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void updatePolicy(float value) {
         pc.updatePolicy(policyIndex, value);

@@ -34,12 +34,6 @@ public class GameEndController : MonoBehaviour
         targetZoom = cam.orthographicSize;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void showGameEndScene(int index, int days, int type, int threshold) {
         print(index + "Game End");
         if (type == 0) {

@@ -13,8 +13,7 @@ public class CitySelectController : MonoBehaviour
 
     public GameObject policyController;
 
-    void Start() {
-        // nameMapping = new Dictionary<string, string>();
+    public CitySelectController() {
         nameMapping.Add(0, "Shanghai");
         nameMapping.Add(1, "Beijing");
         nameMapping.Add(2, "Tianjin");
@@ -51,6 +50,11 @@ public class CitySelectController : MonoBehaviour
         nameMapping.Add(-1, "China");
     }
 
+    // void Start() {
+    //     // nameMapping = new Dictionary<string, string>();
+
+    // }
+
     public void updateFigure(int index) {
         // print(nameMapping);
         print(nameMapping[index]);
@@ -59,4 +63,10 @@ public class CitySelectController : MonoBehaviour
         dataPaneController.GetComponent<DataPaneController>().changeCity(index);
         policyController.GetComponent<policyController>().changeCity(index);
     }
+
+    // // This method is for testing only
+    // public void setReference(GameObject dataObj, GameObject policyObj) {
+    //     dataPaneController = dataObj;
+    //     policyController = policyObj;
+    // }
 }

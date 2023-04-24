@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 3}
-  - {fileID: 13}
+  - {fileID: 14}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: -1
+  controlID: 435
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -34,92 +34,472 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Game
-    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000,
-      type: 0}
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 287.2
+    x: 1088.8
     y: 73.6
-    width: 939.60004
-    height: 496.59998
+    width: 446.19995
+    height: 709.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  m_SerializedViewNames:
-  - UnityEditor.DeviceSimulation.SimulatorWindow
-  m_SerializedViewValues:
-  - D:\Unity\Serious-Game\Library\PlayModeViewStates\004925b0fe1210f40bf0aaca413c0c17
-  m_PlayModeViewName: GameView
-  m_ShowGizmos: 0
-  m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1174.5, y: 594.5}
-  m_TextureFilterMode: 0
-  m_TextureHideFlags: 61
-  m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 2
-  m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -469.80002
-    m_HBaseRangeMax: 469.80002
-    m_VBaseRangeMin: -237.8
-    m_VBaseRangeMax: 237.8
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 939.60004
-      height: 475.59998
-    m_Scale: {x: 0.99999994, y: 0.99999994}
-    m_Translation: {x: 469.80002, y: 237.79999}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -469.80005
-      y: -237.8
-      width: 939.6001
-      height: 475.6
-    m_MinimalGUI: 1
-  m_defaultScale: 0.99999994
-  m_LastWindowPixelSize: {x: 1174.5, y: 620.75}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 00000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
+  m_Spl:
+    ID: 452
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 480
+    - 160
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 640
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 1
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 0}
+    m_NewResultList: []
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories: []
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 2}
+    m_NewResultList:
+    - id: 1015
+      uniqueId: '[Plague Inc Clone][suite]'
+      name: Plague Inc Clone
+      fullName: Plague Inc Clone
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1035
+      uniqueId: '[EditModeTests][D:/Unity/Serious-Game/Library/ScriptAssemblies/EditModeTests.dll][suite]'
+      name: EditModeTests.dll
+      fullName: D:/Unity/Serious-Game/Library/ScriptAssemblies/EditModeTests.dll
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1015
+      parentUniqueId: '[Plague Inc Clone][suite]'
+    - id: 1016
+      uniqueId: EditModeTests.dll/[EditModeTests][TestDataManager][suite]
+      name: TestDataManager
+      fullName: TestDataManager
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1035
+      parentUniqueId: '[EditModeTests][D:/Unity/Serious-Game/Library/ScriptAssemblies/EditModeTests.dll][suite]'
+    - id: 1017
+      uniqueId: EditModeTests.dll/TestDataManager/[EditModeTests][TestDataManager.ChangeWaitTime_WaitTime_IsSetCorrectly]
+      name: ChangeWaitTime_WaitTime_IsSetCorrectly
+      fullName: TestDataManager.ChangeWaitTime_WaitTime_IsSetCorrectly
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestDataManager][suite]
+    - id: 1023
+      uniqueId: EditModeTests.dll/TestDataManager/[EditModeTests][TestDataManager.GetDate_DateValue_IsCorrect]
+      name: GetDate_DateValue_IsCorrect
+      fullName: TestDataManager.GetDate_DateValue_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestDataManager][suite]
+    - id: 1021
+      uniqueId: EditModeTests.dll/TestDataManager/[EditModeTests][TestDataManager.GetDeath_DeathCount_IsCorrect]
+      name: GetDeath_DeathCount_IsCorrect
+      fullName: TestDataManager.GetDeath_DeathCount_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestDataManager][suite]
+    - id: 1020
+      uniqueId: EditModeTests.dll/TestDataManager/[EditModeTests][TestDataManager.GetInfection_InfectionCount_IsCorrect]
+      name: GetInfection_InfectionCount_IsCorrect
+      fullName: TestDataManager.GetInfection_InfectionCount_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestDataManager][suite]
+    - id: 1019
+      uniqueId: EditModeTests.dll/TestDataManager/[EditModeTests][TestDataManager.GetMaxInfectionCity_CityIndex_IsCorrect]
+      name: GetMaxInfectionCity_CityIndex_IsCorrect
+      fullName: TestDataManager.GetMaxInfectionCity_CityIndex_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestDataManager][suite]
+    - id: 1022
+      uniqueId: EditModeTests.dll/TestDataManager/[EditModeTests][TestDataManager.GetSatisfaction_SatisfactionCount_IsCorrect]
+      name: GetSatisfaction_SatisfactionCount_IsCorrect
+      fullName: TestDataManager.GetSatisfaction_SatisfactionCount_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestDataManager][suite]
+    - id: 1018
+      uniqueId: EditModeTests.dll/TestDataManager/[EditModeTests][TestDataManager.UpdatePolicyIndex_PolicyValue_IsUpdatedCorrectly]
+      name: UpdatePolicyIndex_PolicyValue_IsUpdatedCorrectly
+      fullName: TestDataManager.UpdatePolicyIndex_PolicyValue_IsUpdatedCorrectly
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestDataManager][suite]
+    - id: 1024
+      uniqueId: EditModeTests.dll/[EditModeTests][TestInfoBlock][suite]
+      name: TestInfoBlock
+      fullName: TestInfoBlock
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1035
+      parentUniqueId: '[EditModeTests][D:/Unity/Serious-Game/Library/ScriptAssemblies/EditModeTests.dll][suite]'
+    - id: 1028
+      uniqueId: EditModeTests.dll/TestInfoBlock/[EditModeTests][TestInfoBlock.GetDensity_IsCorrect]
+      name: GetDensity_IsCorrect
+      fullName: TestInfoBlock.GetDensity_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestInfoBlock][suite]
+    - id: 1025
+      uniqueId: EditModeTests.dll/TestInfoBlock/[EditModeTests][TestInfoBlock.GetGDP_IsCorrect]
+      name: GetGDP_IsCorrect
+      fullName: TestInfoBlock.GetGDP_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestInfoBlock][suite]
+    - id: 1026
+      uniqueId: EditModeTests.dll/TestInfoBlock/[EditModeTests][TestInfoBlock.GetName_IsCorrect]
+      name: GetName_IsCorrect
+      fullName: TestInfoBlock.GetName_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestInfoBlock][suite]
+    - id: 1027
+      uniqueId: EditModeTests.dll/TestInfoBlock/[EditModeTests][TestInfoBlock.GetPopulation_IsCorrect]
+      name: GetPopulation_IsCorrect
+      fullName: TestInfoBlock.GetPopulation_IsCorrect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestInfoBlock][suite]
+    - id: 1029
+      uniqueId: EditModeTests.dll/[EditModeTests][TestModel][suite]
+      name: TestModel
+      fullName: TestModel
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1035
+      parentUniqueId: '[EditModeTests][D:/Unity/Serious-Game/Library/ScriptAssemblies/EditModeTests.dll][suite]'
+    - id: 1031
+      uniqueId: EditModeTests.dll/TestModel/[EditModeTests][TestModel.CalculateNewDailyDeath_ReturnsCorrectDeaths]
+      name: CalculateNewDailyDeath_ReturnsCorrectDeaths
+      fullName: TestModel.CalculateNewDailyDeath_ReturnsCorrectDeaths
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestModel][suite]
+    - id: 1032
+      uniqueId: EditModeTests.dll/TestModel/[EditModeTests][TestModel.CalculateNewDailyInfection_ReturnsCorrectInfections]
+      name: CalculateNewDailyInfection_ReturnsCorrectInfections
+      fullName: TestModel.CalculateNewDailyInfection_ReturnsCorrectInfections
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestModel][suite]
+    - id: 1030
+      uniqueId: EditModeTests.dll/TestModel/[EditModeTests][TestModel.CalculateNewSatisfaction_ReturnsCorrectSatisfaction]
+      name: CalculateNewSatisfaction_ReturnsCorrectSatisfaction
+      fullName: TestModel.CalculateNewSatisfaction_ReturnsCorrectSatisfaction
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestModel][suite]
+    - id: 1034
+      uniqueId: EditModeTests.dll/TestModel/[EditModeTests][TestModel.PolicyChangingFrequency_ReturnsCorrectFrequency]
+      name: PolicyChangingFrequency_ReturnsCorrectFrequency
+      fullName: TestModel.PolicyChangingFrequency_ReturnsCorrectFrequency
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestModel][suite]
+    - id: 1033
+      uniqueId: EditModeTests.dll/TestModel/[EditModeTests][TestModel.StringencyIndex_ReturnsCorrectIndex]
+      name: StringencyIndex_ReturnsCorrectIndex
+      fullName: TestModel.StringencyIndex_ReturnsCorrectIndex
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1029
+      parentUniqueId: EditModeTests.dll/[EditModeTests][TestModel][suite]
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: d2943596249e0615dc4aa941ff4e5e6213fc3c6cffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,17 +514,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 4}
-  - {fileID: 10}
+  - {fileID: 11}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1228.8
+    width: 1088.8
     height: 730.8
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: -1
+  controlID: 45
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,12 +544,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1228.8
-    height: 517.6
+    width: 1088.8
+    height: 473.6
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: -1
+  controlID: 46
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,8 +567,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 287.2
-    height: 517.6
+    width: 246.4
+    height: 473.6
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
@@ -218,9 +598,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73.6
-    width: 286.2
-    height: 496.59998
+    y: 19
+    width: 245.4
+    height: 452.6
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -228,9 +608,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 305a0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: baf6ffff3cf7ffff2cfbffff
+      m_ExpandedIDs: 1afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -269,19 +649,19 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 287.2
+    x: 246.4
     y: 0
-    width: 941.60004
-    height: 517.6
+    width: 842.4
+    height: 473.6
   m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 2}
+  m_ActualView: {fileID: 9}
   m_Panes:
   - {fileID: 8}
-  - {fileID: 2}
   - {fileID: 9}
+  - {fileID: 10}
   m_Selected: 1
-  m_LastSelected: 2
+  m_LastSelected: 0
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -303,10 +683,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 287.2
+    x: 247.2
     y: 73.6
-    width: 939.60004
-    height: 496.59998
+    width: 839.60004
+    height: 453.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -338,7 +718,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -530,9 +910,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.2999528, y: 0.13760844, z: 58.26266}
+    m_Target: {x: 1.3781493, y: 0.40874612, z: 304.82227}
     speed: 2
-    m_Value: {x: -0.2999528, y: 0.13760844, z: 58.26266}
+    m_Value: {x: 1.3781493, y: 0.40874612, z: 304.82227}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -583,9 +963,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.1976843
+    m_Target: 6.27471
     speed: 2
-    m_Value: 6.1976843
+    m_Value: 6.27471
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -611,6 +991,101 @@ MonoBehaviour:
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
 --- !u!114 &9
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Game
+    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 246.40001
+    y: 73.6
+    width: 840.4
+    height: 452.6
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_SerializedViewNames:
+  - UnityEditor.DeviceSimulation.SimulatorWindow
+  m_SerializedViewValues:
+  - D:\Unity\Serious-Game\Library\PlayModeViewStates\004925b0fe1210f40bf0aaca413c0c17
+  m_PlayModeViewName: GameView
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetSize: {x: 1050.5, y: 539.5}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_EnterPlayModeBehavior: 2
+  m_UseMipMap: 0
+  m_VSyncEnabled: 0
+  m_Gizmos: 0
+  m_Stats: 0
+  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_ZoomArea:
+    m_HRangeLocked: 0
+    m_VRangeLocked: 0
+    hZoomLockedByDefault: 0
+    vZoomLockedByDefault: 0
+    m_HBaseRangeMin: -420.2
+    m_HBaseRangeMax: 420.2
+    m_VBaseRangeMin: -215.8
+    m_VBaseRangeMax: 215.8
+    m_HAllowExceedBaseRangeMin: 1
+    m_HAllowExceedBaseRangeMax: 1
+    m_VAllowExceedBaseRangeMin: 1
+    m_VAllowExceedBaseRangeMax: 1
+    m_ScaleWithWindow: 0
+    m_HSlider: 0
+    m_VSlider: 0
+    m_IgnoreScrollWheelUntilClicked: 0
+    m_EnableMouseInput: 1
+    m_EnableSliderZoomHorizontal: 0
+    m_EnableSliderZoomVertical: 0
+    m_UniformScale: 1
+    m_UpDirection: 1
+    m_DrawArea:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 840.4
+      height: 431.6
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 420.2, y: 215.8}
+    m_MarginLeft: 0
+    m_MarginRight: 0
+    m_MarginTop: 0
+    m_MarginBottom: 0
+    m_LastShownAreaInsideMargins:
+      serializedVersion: 2
+      x: -420.2
+      y: -215.8
+      width: 840.4
+      height: 431.6
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 1050.5, y: 565.75}
+  m_ClearInEditMode: 1
+  m_NoCameraWarning: 1
+  m_LowResolutionForAspectRatios: 00000000000000000000
+  m_XRRenderMode: 0
+  m_RenderTexture: {fileID: 0}
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -649,9 +1124,8 @@ MonoBehaviour:
     - {fileID: -1409070257183876389, guid: 76e6078e78a71244a8a01c216c98c4d6, type: 2}
     - {fileID: 7205026338623456257, guid: 52f8b55adc33f8e42ab048a41de6f361, type: 2}
     - {fileID: -8694348672817830978, guid: 6f7d263c39a186044be293013e651cf9, type: 2}
-    - {fileID: 6137788381678116970, guid: 8ac1b77a704361345a07ca8a870bd1a6, type: 2}
-    - {fileID: 3419613390578779950, guid: 842409a4ae1d18a4a8b22c76637fb96f, type: 2}
-    - {fileID: 3419613390578779950, guid: 04ff44e079b636741a4571db13f1a4b6, type: 2}
+    - {fileID: -8359882032519217290, guid: 987cf6c8016d77f418898d41a9635325, type: 2}
+    - {fileID: 1425681218711507445, guid: 6d3633c86392f1b4bb9ec6773369d7e2, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.59157896
       e01: 0
@@ -788,23 +1262,7 @@ MonoBehaviour:
       e10: 0
       e11: 0.59157896
       e12: 0
-      e13: 214.01053
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.78488654
-      e01: 0
-      e02: 0
-      e03: -43.799377
-      e10: 0
-      e11: 0.78488654
-      e12: 0
-      e13: 139.69798
+      e13: 149.39474
       e20: 0
       e21: 0
       e22: 1
@@ -820,7 +1278,7 @@ MonoBehaviour:
       e10: 0
       e11: 0.59157896
       e12: 0
-      e13: 164.18689
+      e13: 125.27368
       e20: 0
       e21: 0
       e22: 1
@@ -830,10 +1288,10 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 04ff44e079b636741a4571db13f1a4b6,
+  m_AnimatorController: {fileID: 9100000, guid: cbbc3ceb702132e4988a4b564bef84ab,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 3419613390578779950, guid: 04ff44e079b636741a4571db13f1a4b6,
+  - m_Target: {fileID: 8321911711147439522, guid: cbbc3ceb702132e4988a4b564bef84ab,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -847,7 +1305,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &10
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -863,18 +1321,18 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 517.6
-    width: 1228.8
-    height: 213.20001
+    y: 473.6
+    width: 1088.8
+    height: 257.19998
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 11}
+  m_ActualView: {fileID: 12}
   m_Panes:
-  - {fileID: 11}
   - {fileID: 12}
+  - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &11
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -896,9 +1354,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 591.2
-    width: 1227.8
-    height: 192.20001
+    y: 492.6
+    width: 1087.8
+    height: 236.19998
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -916,22 +1374,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity\Serious-Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: fa590000
-    m_LastClickedID: 23034
-    m_ExpandedIDs: 000000009659000000ca9a3bffffff7f
+    m_SelectedIDs: a05c0000
+    m_LastClickedID: 23712
+    m_ExpandedIDs: 00000000725c000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -947,7 +1405,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 11}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -959,7 +1417,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009659000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000725c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -984,8 +1442,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 305a0000
-    m_LastClickedInstanceID: 23088
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300003cb60000000000007e56000072560000e05c0000
     m_RenameOverlay:
@@ -1003,7 +1461,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1015,7 +1473,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &12
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1037,14 +1495,14 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 591.2
-    width: 1227.8
-    height: 192.20001
+    y: 548
+    width: 1087.8
+    height: 235.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &13
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1052,25 +1510,26 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1228.8
+    x: 1088.8
     y: 0
-    width: 307.19995
+    width: 447.19995
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
+  m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 2}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 2}
+  - {fileID: 15}
   m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &14
+  m_LastSelected: 1
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1091,9 +1550,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1228.8
+    x: 1088.8
     y: 73.6
-    width: 306.19995
+    width: 446.19995
     height: 709.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:

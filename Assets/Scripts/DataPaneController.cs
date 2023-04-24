@@ -40,6 +40,7 @@ public class DataPaneController : MonoBehaviour
     private int CityIndex;
 
     private int k = 7;
+
     
     // Start is called before the first frame update
     void Start()

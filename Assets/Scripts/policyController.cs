@@ -14,6 +14,9 @@ public class policyController : MonoBehaviour
 
     private int cityIndex;
 
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +25,9 @@ public class policyController : MonoBehaviour
         for (var i = 0; i < sliders.Length; i++) {
             sliders[i].enabled = false;
         }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void changeCity(int idx) {
         cityIndex = idx;
@@ -50,4 +49,9 @@ public class policyController : MonoBehaviour
     public void updatePolicy(int policyIndex, float value) {
         dataManager.updatePolicyIndex(cityIndex, policyIndex, value);
     }
+
+    public int getCityIndex() {
+        return cityIndex;
+    }
+
 }

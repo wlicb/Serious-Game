@@ -22,10 +22,7 @@ public class InfoBlock : MonoBehaviour
 
     public GameObject ChinaMap;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameObject.SetActive(false);
+    private void init() {
         makeMapping();
         addPopulationDensity();
         addGDP();
@@ -33,10 +30,15 @@ public class InfoBlock : MonoBehaviour
         addPopulation();
     }
 
-    // Update is called once per frame
-    void Update()
+    public InfoBlock() {
+        init();
+    }
+
+    // Start is called before the first frame update
+    void Start()
     {
-        
+        gameObject.SetActive(false);
+        // init();
     }
 
     public void hide() {
@@ -55,6 +57,7 @@ public class InfoBlock : MonoBehaviour
     {
         return nameMapping[index];
     }
+    
     public void updateContent(int index) {
         name.GetComponent<Text>().text = nameMapping[index];
         description.GetComponent<Text>().text = briefDescription[index];

@@ -6,43 +6,6 @@ using System;
 public class Model : MonoBehaviour
 {
 
-    // public int calculateNewDailyInfection(int cityIndex, int lastIncrease, int[] policies) {
-    //     var val = 0;
-    //     if (lastIncrease == 0) {
-    //         val = new System.Random().Next(500);
-    //     } else {
-    //         val = new System.Random().Next(500) * (20 - Sum(policies)) / 20 * lastIncrease / 500;
-    //     } 
-    //     // print(val);
-    //     return val;
-    // }
-
-    // public int calculateNewDailyDeath(int cityIndex, int dailyInfection) {
-    //     double factor = new System.Random().NextDouble()  * 0.1;
-    //     int val = (int)(dailyInfection * factor);
-    //     return val;
-    // }
-
-    // public int calculateNewSatisfaction(int cityIndex, int infection, int death, int[] policies, int lastSatisfaction) {
-    //     var val = lastSatisfaction;
-    //     if (Sum(policies) >= 10) {
-    //         val -= new System.Random().Next(10);
-    //     } else {
-    //         val += new System.Random().Next(10);
-    //     }
-
-    //     if (death >= 10) {
-    //         val -= new System.Random().Next(10);
-    //     }
-
-    //     if (val < 0) {
-    //         val = 0;
-    //     } else if (val > 100) {
-    //         val = 100;
-    //     }
-    //     return val;
-    // }
-
     private int Sum(int[] vals) {
         var result = 0;
         for (var i = 0; i < vals.Length; i++) {
@@ -92,7 +55,7 @@ public class Model : MonoBehaviour
         return Math.Max(Math.Min(newSatisfaction, 100), 0);
     }
 
-    public int calculateNewDailyDeath(int lastIncrease, int lastDeath)
+    public int calculateNewDailyDeath(int lastIncrease, int lastDeath, int totalInfection)
     {
         // Define the base death rate as a random number between 0.6 and 1.4
         double baseDeathRate = new System.Random().NextDouble() * (1.5 - 0.5) + 0.5;
@@ -129,7 +92,8 @@ public class Model : MonoBehaviour
 
         // Calculate the predicted death cases for the new day
         int predictedDeath = (int)Math.Round(lastIncrease * deathMultiplier * increaseMultiplier * baseDeathRate)/1000;
-        predictedDeath = predictedDeath + new System.Random().Next(0, 1);
+        if (totalInfection > 0)
+            predictedDeath = predictedDeath + new System.Random().Next(0, 1);
 
         return predictedDeath;
     }
@@ -159,9 +123,15 @@ public class Model : MonoBehaviour
 
     public double stringencyIndex(int[] policies)
     {
-        double index = policies[0] / 3 + policies[1] / 3 + policies[2] / 2 + policies[3] / 4 + policies[4] / 2 + policies[5] / 3 + policies[6] / 2;
-        index /= 7;
-        index *= 100;
+        double index = (double)policies[0] / (double)3 + 
+                        (double)policies[1] / (double)3 + 
+                        (double)policies[2] / (double)2 + 
+                        (double)policies[3] / (double)4 + 
+                        (double)policies[4] / (double)2 + 
+                        (double)policies[5] / (double)3 + 
+                        (double)policies[6] / (double)2;
+        index /= (double)7.0;
+        index *= (double)100.0;
         return index;
     }
 
